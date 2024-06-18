@@ -1,0 +1,3202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Path to Multimodal Generalist</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://kit.fontawesome.com/f8ddf9854a.js" crossorigin="anonymous"></script>
+  <!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script> -->
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Path to Multimodal Generalist: Levels, Benchmark and Models">
+  <meta name="keywords" content="Multimodal LLM, MLLM Evaluation, Benchmark, Vision Language Model, Large Language Model, artificial intelligence, AI, AGI, artificial general intelligence">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Path to Multimodal Generalist: Level, Benchmark and Model</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./static/images/icon.png">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/index.css"> -->
+  <!-- <link rel="stylesheet" href="./static/css/leaderboard.css"> -->
+
+
+  <link href="./static/css/scrolling-nav.css" rel="stylesheet">
+
+  <!-- Bootstrap core CSS -->
+  <link href="./static/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bulma.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script> -->
+  <!-- <script type="text/javascript" src="static/js/sort-table.js" defer></script> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <!-- <script src="./static/js/index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+  <script src="./data/results/data_setting.js" defer></script>
+  <script src="./data/results/model_scores.js" defer></script>
+  <script src="./visualizer/data/data_public.js" defer></script> -->
+
+</head>
+<body>
+
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container" style="max-width: 60%;">
+        <div class="navbar-header">
+            <a class="navbar-brand js-scroll-trigger" href="#" style="font-size: 30px;">
+                Path to Generalist
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#overview"><i class="fa-solid fa-globe"></i> Overview</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#level"><i class="fa-solid fa-circle-nodes"></i> Level</a>
+                </li>
+<!-- Speakers -->
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#benchmark"><i class="fa-solid fa-database"></i> Benchmark</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#leaderboard-x"><i class="fa-solid fa-trophy"></i> Leaderboard</a>
+                </li>
+<!-- Partners, Photos -->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link js-scroll-trigger" href="#location">Location</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link js-scroll-trigger" href="#past-ssnlp">Past SSNLP</a>-->
+<!--                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#contact"><i class="fa-solid fa-headphones"></i> Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<!--<nav class="navbar" role="navigation" aria-label="main navigation">-->
+<!--  <div class="navbar-brand">-->
+<!--    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">-->
+<!--      <span aria-hidden="true"></span>-->
+<!--      <span aria-hidden="true"></span>-->
+<!--      <span aria-hidden="true"></span>-->
+<!--    </a>-->
+<!--  </div>-->
+<!--  <div class="navbar-menu">-->
+<!--    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">-->
+<!--      <div class="navbar-item has-dropdown is-hoverable">-->
+<!--        <a class="navbar-link">-->
+<!--          More Research-->
+<!--        </a>-->
+<!--        <div class="navbar-dropdown">-->
+<!--          <a class="navbar-item" href="https://github.com/OpenGVLab/Multi-Modality-Arena">-->
+<!--            <b>Lvlm-ehub</b> <p style="font-size:18px; display: inline; margin-left: 5px;">🔥</p>-->
+<!--          </a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--</nav> -->
+
+
+
+<section class="hero" style="margin-top:30px;">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title is-bold">
+            <span class="MMT-Bench" style="vertical-align: middle">Path to Multimodal Generalist:</span>
+            </h1>
+          <h1 class="subtitle is-1 publication-subtitle is-bold">
+              <em>Levels</em>, <em>Benchmarks</em> and <em>Models</em>
+          </h1>
+
+          <br>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="http://haofei.vip/">Hao Fei</a><sup>*,</sup><sup style="color:#6fbf73;">1</sup><sup>,</sup><sup style="color:#ffac33;">2</sup>,</span>
+            <span class="author-block"><a href="#">Yuan Zhou</a><sup>*,</sup><sup style="color:#ed4b82;">3</sup>,</span>
+            <span class="author-block"><a href="#">Juncheng Li</a><sup style="color:#6fbf73;">1</sup>,</span>
+            <!-- <span class="author-block">Kai Zhang*<sup style="color:#ed4b82;">3</sup>,</span> -->
+            <span class="author-block"><a href="https://lxtgh.github.io/">Xiangtai Li</a><sup style="color:#ffac33;">2</sup>,</span>
+            <span class="author-block"><a href="#">Yucheng Han</a><sup style="color:#ed4b82;">3</sup>,</span>
+            <span class="author-block"><a href="#">Wentao Hu</a><sup style="color:#ed4b82;">3</sup>,</span>
+            <span class="author-block"><a href="#">Liyu Jia</a><sup style="color:#ed4b82;">3</sup>,</span><br>
+            <span class="author-block"><a href="https://chocowu.github.io/">Shengqiong Wu</a><sup style="color:#6fbf73;">1</sup>,</span>
+            <span class="author-block"><a href="#">Peng Zhou</a><sup style="color:#1b1be0;">6</sup>,</span>
+            <span class="author-block"><a href="#">Lin Liu</a><sup style="color:#d119a9;">7</sup>,</span>
+            <span class="author-block"><a href="#">Haobo Yuan</a><sup style="color:#ed4b82;">3</sup>,</span>
+            <span class="author-block"><a href="#">Tao Zhang</a><sup style="color:#007bff;">4</sup>,</span>
+            <span class="author-block"><a href="https://www.libobo.site/">Bobo Li</a><sup style="color:#007bff;">4</sup>,</span>
+            <span class="author-block"><a href="#">Zixiang Meng</a><sup style="color:#007bff;">4</sup>,</span><br>
+            <span class="author-block"><a href="#">Chengjie Zhou</a><sup style="color:#007bff;">4</sup>,</span>
+            <span class="author-block"><a href="#">Minghe Gao</a><sup style="color:#9b51e0;">5</sup>,</span>
+            <span class="author-block"><a href="#">Kaihang Pan</a><sup style="color:#9b51e0;">5</sup>,</span>
+            <span class="author-block"><a href="#">Yaobo Ye</a><sup style="color:#9b51e0;">5</sup>,</span>
+            <span class="author-block"><a href="#">Mingze Zhou</a><sup style="color:#9b51e0;">5</sup>,</span>
+            <span class="author-block"><a href="#">Zhiqi Ge</a><sup style="color:#9b51e0;">5</sup>,</span>
+            <br>
+
+            <span class="author-block"><a href="https://personal.ntu.edu.sg/hanwangzhang/">Hanwang Zhang</a><sup>†,</sup><sup style="color:#ffac33;">2,</sup></sup><sup style="color:#ed4b82;">3</sup>,<sup></span>
+            <span class="author-block"><a href="https://yanshuicheng.info/">Shuicheng Yan</a><sup style="color:#ffac33;">2</sup></span>
+            <!-- <span class="author-block">Yali Wang<sup style="color:#1b1be0;">6</sup>,</span>
+            <span class="author-block">Yu Qiao<sup style="color:#6fbf73;">1</sup>,</span><br> -->
+            <!-- <span class="author-block">Huan Sun*<sup style="color:#ed4b82;">3</sup>,</span>
+            <span class="author-block">Yu Su*<sup style="color:#ed4b82;">†,3</sup>,</span>
+            <span class="author-block">Wenhu Chen*<sup style="color:#ffac33;">†,2</sup></span> -->
+            <!-- <span class="author-block">Ping Luo<sup style="color:#ed4b82;">3</sup><sup>,</sup><sup style="color:#6fbf73;">1</sup></a>,</span>
+            <span class="author-block">Kaipeng Zhang<sup>†,</sup><sup style="color:#6fbf73;">1</sup></a>,</span>
+            <span class="author-block">Wenqi Shao<sup>†,</sup><sup style="color:#6fbf73;">1</sup></a></span> -->
+          
+          </div>
+
+          <br>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">(* Equal contribution &nbsp;&nbsp; † Correspondence)</span>
+<!--            <span class="author-block"></span>-->
+<!--            <span class="author-block"><a href="mailto:haofei7419@gmail.com">haofei7419@gmail.com</a>,</span>-->
+<!--            <span class="author-block"><a href="mailto:hanwangzhang@ntu.edu.sg">hanwangzhang@ntu.edu.sg</a></span>-->
+          </div>
+
+          <br>
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup style="color:#6fbf73;">1</sup>National University of Sigapore,</span>
+            <span class="author-block"><sup style="color:#ffac33;">2</sup>Skywork AI, Singapore,</span></br>
+            <span class="author-block"><sup style="color:#ed4b82;">3</sup>Nanyang Technological University,</span>
+            <span class="author-block"><sup style="color:#007bff;">4</sup>Wuhan University,</span></br>
+            <span class="author-block"><sup style="color:#9b51e0;">5</sup>Zhejiang University,</span>
+            <span class="author-block"><sup style="color:#1b1be0;">6</sup>Shanghai Jiao Tong University,</span></br>
+            <span class="author-block"><sup style="color:#d119a9;">7</sup>University of Science and Technology of China</span>
+          </div>
+
+          
+
+          <br>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <!-- @PAN TODO: change links -->
+                <a href="xxx"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+<!--              <span class="link-block">-->
+<!--                <a href="xxx"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      &lt;!&ndash; <i class="far fa-images"></i> &ndash;&gt;-->
+<!--                      <p style="font-size:18px">🤗</p>-->
+<!--                      &lt;!&ndash; 🔗 &ndash;&gt;-->
+<!--                  </span>-->
+<!--                  <span>Dataset</span>-->
+<!--                </a>-->
+<!--              </span>-->
+              <span class="link-block">
+                <a href="https://github.com/path2generalist/GeneralBench"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code&Data</span>
+                  </a>
+              </span>
+              
+              <!-- Leaderboard Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="xxx"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon has-text-white">-->
+<!--                    <i class="fa-solid fa-trophy"></i>-->
+<!--                      &lt;!&ndash; <p style="font-size:18px">🏆</p> &ndash;&gt;-->
+<!--                  </span>-->
+<!--                  <span>Leaderboard</span>-->
+<!--                </a>-->
+<!--              </span>-->
+
+              <!-- EvalAI Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="xxx"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon has-text-white">-->
+<!--                    <i class="fa-solid fa-book"></i>-->
+<!--                  </span>-->
+<!--                  <span>Contact</span>-->
+<!--                </a>-->
+<!--              </span>-->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
+</style>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+        <div class="content has-text-centered">
+          <img src="static/images/overview_mmtbench.png" alt="MMT-bench" width="100%"/>
+          <p> Visualization of MMT-Bench. Our MMT-Bench consists of 32 meta-tasks (middle ring) which are decomposed into 162 subtasks (outer ring). For each meta-task, we denote the number of subtasks in it and illustrate one example of the pair of the image
+            and the question. MMT-Bench can be comprehensive enough to evaluate the multitask performance of LVLMs.</p>
+        </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+<!-- NEWS -->
+<section class="section">
+  <div class="container" style="margin-bottom: 2vh;">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">🔔News</h2>
+        <div class="content has-text-justified">
+          <p>
+            <b>🔥[2024-06-16]: We release our first version of benchmark datasets, and the leaderboard!</b>
+          </p>
+          <br>
+      </div>
+
+      </div>
+    </div>
+</div>
+</section>
+
+
+<section class="hero is-light is-small" id="overview">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 MMT-Bench"><i class="fa-solid fa-globe"></i> Overview</h1>
+  </div>
+</section>
+<section class="section">
+  <div class="container" style="margin-bottom: 2vh;">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+<!--        <h2 class="title is-3">Introduction</h2>-->
+        <div class="content has-text-justified">
+          <p>
+            The Multimodal Language and Vision Models (MLLM) community is currently experiencing rapid growth, driven by the advanced capabilities of language-based LLMs. 
+            Unlike their specialist predecessors, existing MLLMs are evolving towards a Multimodal Generalist paradigm. 
+            Initially limited to understanding multiple modalities, these models have advanced to not only comprehend but also generate and edit across modalities. 
+            Their capabilities have expanded from coarse-grained to fine-grained multimodal understanding 
+            and from supporting singular modalities to accommodating a wide array or even arbitrary modalities. 
+            To assess the capabilities of various MLLMs, a diverse array of benchmark test sets has been proposed. 
+            This leads to a critical inquiry: <b>Can we simply assume that higher performance across diverse tasks and the support of more modalities indicate a stronger MLLM capability, 
+              bringing us closer to human-level artificial intelligence?</b>
+            <br><br>
+            We argue that the answer is not as straightforward. 
+            In this project, we introduce a framework designed to delineate the capabilities and behaviors of current MLLM Generalists. 
+            This framework establishes levels of MLLM performance and generality, 
+            offering a methodology to compare MLLMs and gauge the progress of existing systems towards more robust Multimodal Generalists and, 
+            ultimately, towards AGI. 
+            Central to our framework is the use of Synergy as the evaluative criterion, 
+            categorizing capabilities based on whether MLLMs preserve synergy in and across comprehension and generation, as well as across multimodal interactions.
+            <br><br>
+            We realize that current MLLM benchmarks predominantly assess multimodal comprehension capabilities—often simplifying complex interactions into multiple-choice questions. 
+            However, a true MLLM Generalist should possess a diverse array of powerful capabilities, e.g., multimodal generation and editing. 
+            To evaluate the comprehensive abilities of various MLLMs as Generalists, we propose a more holistic benchmark, named <b>General-Bench</b>, 
+            which encompasses a broader spectrum of tasks, modalities, formats, and capabilities. 
+            The evaluation results involving over 20 existing popular MLLMs have uncovered the current capability rankings of Multimodal Generalists, 
+            highlighting the challenges in reaching genuine human-level AI. 
+            We anticipate that the Multimodal Generalist Levels and our General-Bench will inspire the community to develop next-generation multimodal foundation models aimed at achieving more sophisticated, general-purpose multimodal intelligence.
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+
+<!-- NEWS -->
+
+
+
+<!-- Level -->
+<section class="hero is-light is-small" id="level">
+  <div class="hero-body has-text-centered">
+  <h1 class="title is-1 MMT-bench">
+    <span style="vertical-align: middle"><i class="fa-solid fa-circle-nodes"></i> Level of Multimodal Generalist</span>
+  </h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Principles</h2>
+        <div class="content has-text-justified">
+          <p>
+            An illustration of our pipeline for data collection. First, given a task name, we retrieve its related datasets from the internet.
+            Then we collate them in a uniform data format - metadata. Finally, we generate questions with choices and answers from metadata using
+            manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
+          </p>
+        </div>
+    </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+<!--        <h2 class="title is-3">Definition</h2>-->
+        <div class="content has-text-justified">
+          <img src="static/images/task-group.png" alt="pipeline" class="center" style="width: 65%;">
+          <br>
+          <p>
+            An illustration of our pipeline for data collection. First, given a task name, we retrieve its related datasets from the internet.
+            Then we collate them in a uniform data format - metadata. Finally, we generate questions with choices and answers from metadata using
+            manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
+          </p>
+        </div>
+    </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Definition</h2>
+        <div class="content has-text-justified">
+          <p>Here, we give the specific definition and calculation of each level:</p>
+          <table style="border:none; text-align:center;">
+            <tr style="border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
+                <th style="background-color:#4CAFB9; font-size: larger;">Level</th>
+                <th style="background-color:#4CAFB9; font-size: larger;">Definition</th>
+                <th style="background-color:#4CAFB9; font-size: larger;">Scoring</th>
+                <th style="background-color:#4CAFB9; font-size: larger;">Example</th>
+            </tr>
+            <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
+                <td style="text-align: left;"><b>Level-0</b> : Specialist</td>
+                <td style="text-align: left;">Models are task-specific players</td>
+                <td>N.A.</td>
+                <td>SAM, Dino, DALLe, ChatGPT</td>
+            </tr>
+            <tr style="background-color:#ffffff; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
+              <td colspan="4" style="text-align:center;">&darr; Upgrading Conditions: <span style="font-weight:bold; font-style:italic;">LLM as intelligence medium (<span style="color:#04B153; font-weight:bold;">C</span>omprehension or/and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration)</span></td>
+            </tr>
+            <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
+                <td style="text-align: left;"><b>Level-1</b> : Unified <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
+                <td style="text-align: left;">Models are task-unified players</td>
+                <td>$$ S_{2} =  \frac{1}{M+N} \sum_{i=1}^{M+N} \sigma_i  $$</td>
+                <td>GPT4v, Ilava, LVM</td>
+            </tr>
+            <tr style="background-color:#ffffff; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
+              <td colspan="4" style="text-align:center;">&darr; Upgrading Conditions: <span style="font-weight:bold; font-style:italic;">Realizing synergy: multi-task joint learning</span></td>
+            </tr>
+            <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
+                <td style="text-align: left;"><b>Level-2</b> : Synergy in <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
+                <td style="text-align: left;">Models are task-unified players, and synergy is in <span style="color:#04B153; font-weight:bold;">C</span>omprehension and/or <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
+                <!-- <td>`S_{3} = \( \frac{1}{M+N} \sum_{i=1}^{M+N} \sigma_i \) (if \(\sigma_i \geq \sigma_{sota}\), else \quad 0)`</td> -->
+                <td>
+                  $$
+                  S_{3} = \frac{1}{M+N} \sum_{i=1}^{M+N} \begin{cases}
+                    \sigma_i,  & \sigma_i \geq \sigma_{sota} \\\\
+                    0
+                    \end{cases}
+                  $$
+                </td>
+                <td>MM-GPT, SALOMNN, Midjourney</td>
+            </tr>
+            <tr style="background-color:#ffffff; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
+              <td colspan="4" style="text-align:center;">&darr; Upgrading Conditions: <span style="font-weight:bold; font-style:italic;">Reconstruction loss for generation should be disentangled from compression learning loss</span></td>
+            </tr>
+            <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
+                <td style="width:25%; text-align: left;"><b>Level-3</b> : Synergy across <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
+                <td style="width:25%; text-align: left;">Models are task-unified players, and synergy is across <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
+                <td style="width:30%;">$$ S_{4} = \frac{2 S_c S_g}{S_c + S_g}, \,\;\;\; \text{where} \\  S_g = \frac{1}{M} \sum_{i=1}^{M}  \begin{cases}
+                  \sigma_i,  & \sigma_i \geq \sigma_{sota} \\\\
+                  0
+                  \end{cases}, \\  S_c = \frac{1}{N} \sum_{j=1}^{N} \begin{cases}
+                  \sigma_j,  & \sigma_j \geq \sigma_{sota} \\\\
+                  0
+                  \end{cases} $$</td>
+                <td style="width:20%;">Emu2, NextGPT, SEED</td>
+            </tr>
+            <tr style="background-color:#ffffff; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
+              <td colspan="4" style="text-align:center;">&darr; Upgrading Conditions: <span style="font-weight:bold; font-style:italic;">Acquiring the capable of abductive reasoning, being context consistent, everything synergy </span></td>
+            </tr>
+            <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
+                <td style="text-align: left;"><b>Level-4</b> : Total Synergy across <span style="color:#04B153; font-weight:bold;">C</span>omprehension, <span style="color:#05B1F0; font-weight:bold;">G</span>eneration, and N<span style="color:#cc1a1a; font-weight:bold;">L</span>P</td>
+                <td style="text-align: left;">Models are task-unified players, and synergy is across <span style="color:#04B153; font-weight:bold;">C</span>omprehension, <span style="color:#05B1F0; font-weight:bold;">G</span>eneration, and N<span style="color:#cc1a1a; font-weight:bold;">L</span>P</td>
+                <td>$$ S_{5} = S_4 \times w_L, \,\;\;\; \text{where} \\  w_L = \frac{S_L}{S_{total}}, \\ S_L = \frac{1}{T} \sum_{k=1}^{T}  \begin{cases}
+                  \sigma_k,  & \sigma_k \geq \sigma_{sota} \\\\
+                  0
+                  \end{cases} $$</td>
+                <td>None, this is our goal!</td>
+            </tr>
+          </table>
+        <!-- <img src="static/images/compare.png" alt="comparison" class="center"> -->
+        </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .image-row {
+      display: center; /* Use flexbox layout */
+  }
+  .image-row img {
+      width: 40%; /* Each image takes up 50% of the width */
+  }
+</style>
+
+
+<!-- Benchmarks -->
+<section class="hero is-light is-small" id="benchmark">
+  <div class="hero-body has-text-centered">
+  <h1 class="title is-1 MMT-bench">
+    <span style="vertical-align: middle"><i class="fa-solid fa-database"></i> Benchmark</span>
+  </h1>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">General-Bench</h2>
+        <div class="content has-text-justified">
+          <img src="static/images/benchmark-illu.png" alt="pipeline" class="center" style="width: 100%;">
+          <br>
+          <p>
+            An illustration of our pipeline for data collection. First, given a task name, we retrieve its related datasets from the internet.
+            Then we collate them in a uniform data format - metadata. Finally, we generate questions with choices and answers from metadata using
+            manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
+          </p>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Modalities</h2>
+        <div class="content has-text-justified">
+          <p>
+            An illustration of our pipeline for data collection. First, given a task name, we retrieve its related datasets from the internet.
+            Then we collate them in a uniform data format - metadata. Finally, we generate questions with choices and answers from metadata using
+            manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
+          </p>
+        </div>
+    </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Task Format</h2>
+        <div class="content has-text-justified">
+          <p>
+            An illustration of our pipeline for data collection. First, given a task name, we retrieve its related datasets from the internet.
+            Then we collate them in a uniform data format - metadata. Finally, we generate questions with choices and answers from metadata using
+            manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
+          </p>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Example</h2>
+        <div class="content has-text-justified">
+          <p>
+            An illustration of our pipeline for data collection. First, given a task name, we retrieve its related datasets from the internet.
+            Then we collate them in a uniform data format - metadata. Finally, we generate questions with choices and answers from metadata using
+            manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
+          </p>
+        </div>
+    </div>
+    </div>
+
+    </div>
+</section>
+
+
+
+
+<section class="hero is-light is-small" id="leaderboard-x">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 MMT-Bench"><i class="fa-solid fa-trophy"></i> Leaderboard</h1>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3" >Generalist Levels</h2>
+        <div class="content">
+          <div class="content has-text-justified">
+            <p>
+              We selected existing popular MLLMs for evaluation on benchmarks and scored them according to the defined rules for levels. Below are the Generalist Levels for MLLMs.
+            </p>
+          </div>
+          <style>
+            #leaderboard-generalist-levels table {
+                width: 100%;
+                border-collapse: collapse;
+                text-align: center;
+                border: none;
+            }
+            #leaderboard-generalist-levels th{
+                /* border: 1px solid #ddd; */
+                font-size: larger;
+                padding: 4px;
+                background-color: #f2f2f2;
+                text-align: left;
+                /* text-align: left; */
+            }
+            #leaderboard-generalist-levels tr{
+                /* background-color: #f2f2f2; */
+                /* border-top:2px solid #8ACBD1;
+                border-bottom: solid 2px #8ACBD1; */
+                text-align: left;
+            }
+            .progress {
+              height: 20px;
+              margin-top: 3px;
+              margin-bottom: 3px;
+              overflow: hidden;
+              background-color: #f5f5f5;
+              border-radius: 8px;
+              -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+                      box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+            }
+            .progress-bar {
+              float: left;
+              width: 0;
+              height: 100%;
+              font-size: 12px;
+              line-height: 20px;
+              color: #ffffff;
+              text-align: center;
+              position: relative; /* 相对定位 */
+              background-color: #337ab7;
+              -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+                      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+              -webkit-transition: width .6s ease;
+              -o-transition: width .6s ease;
+              transition: width .6s ease;
+            }
+            .progress-text{
+              position: absolute;
+              right: -40px;
+              bottom: 0;
+              padding: 2px 5px;
+              font-size: 12px;
+              line-height: 20px;
+              text-align: center;
+              color: black;
+            }
+            .progress-text-0{
+              position: absolute;
+              right: -20px;
+              bottom: 0;
+              padding: 2px 5px;
+              font-size: 12px;
+              line-height: 20px;
+              text-align: center;
+              color: black;
+            }
+          </style>
+
+          <div  id="leaderboard-generalist-levels">
+            <table>
+              <thead>
+                  <tr>
+                      <th>Generalist</th>
+                      <th>Level 1</th>
+                      <th>Level 2</th>
+                      <th>Level 3</th>
+                      <th>Level 4</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>LLaVA1.5-7B</td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="9.02" aria-valuemin="0" aria-valuemax="40" style="width: 13.53%;">
+                            <div class="progress-text-0">9.02</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="4.77" aria-valuemin="0" aria-valuemax="15" style="width: 7.15%;">
+                            <div class="progress-text-0">4.77</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                            <div class="progress-text-0">0</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                      <td>GPT4v</td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="8.04" aria-valuemin="0" aria-valuemax="40" style="width: 12.06%;">
+                            <div class="progress-text-0">8.04</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="2.62" aria-valuemin="0" aria-valuemax="15" style="width: 3.93%;">
+                            2.62
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                            <div class="progress-text-0">0</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                      <td>GPT4o</td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="13.78" aria-valuemin="0" aria-valuemax="40" style="width: 20.67%;">
+                            <div class="progress-text-0">13.78</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="3.86" aria-valuemin="0" aria-valuemax="15" style="width: 5.79%;">
+                            3.86
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                            <div class="progress-text-0">0</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                      <td>QwenVL-Plus</td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="11.54" aria-valuemin="0" aria-valuemax="40" style="width: 17.31%;">
+                            <div class="progress-text-0">11.54
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="6.90" aria-valuemin="0" aria-valuemax="15" style="width: 10.35%;">
+                            <div class="progress-text-0">6.90</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                            <div class="progress-text-0">0</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>InternVL</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.65" aria-valuemin="0" aria-valuemax="40" style="width: 17.475%;">
+                          <div class="progress-text-0">11.65</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="7.24" aria-valuemin="0" aria-valuemax="15" style="width: 10.86%;">
+                          <div class="progress-text-0">7.24</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                      <td>MoE-LLaVA-1.8B-4E</td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="7.15" aria-valuemin="0" aria-valuemax="40" style="width: 15.88%;">
+                            7.15
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="2.89" aria-valuemin="0" aria-valuemax="15" style="width: 19.29%;">
+                            2.89
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="40" style="width: 0%;">
+                            <div class="progress-text-0">0</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>YiVL-6B</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.55" aria-valuemin="0" aria-valuemax="40" style="width: 23.63%;">
+                          11.55
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="4.83" aria-valuemin="0" aria-valuemax="15" style="width: 32.17%;">
+                          4.83
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>BLIP2</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="4.62" aria-valuemin="0" aria-valuemax="40" style="width: 10.27%;">
+                          <div class="progress-text"> 4.62</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0.00" aria-valuemin="0" aria-valuemax="15" style="width: 0.00%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>MiniGPT4</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar overflow-visible text-dark" role="progressbar" aria-valuenow="2.54" aria-valuemin="0" aria-valuemax="40" style="width: 5.65%;">
+                          <div class="progress-text">2.54</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0.00" aria-valuemin="0" aria-valuemax="15" style="width: 0.00%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>miniGemnini-7B</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="21.23" aria-valuemin="0" aria-valuemax="40" style="width: 47.37%;">
+                          21.23
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.12" aria-valuemin="0" aria-valuemax="15" style="width: 74.14%;">
+                          11.12
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.04" aria-valuemin="0" aria-valuemax="15" style="width: 73.60%;">
+                          11.04
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Emu2-37B</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="49.53" aria-valuemin="0" aria-valuemax="40" style="width: 86.95%;">
+                          49.53
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="12.79" aria-valuemin="0" aria-valuemax="15" style="width: 76.69%;">
+                          12.79
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="12.09" aria-valuemin="0" aria-valuemax="15" style="width: 75.20%;">
+                          12.09
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>SEED-LLaMA-14B-SFT</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="12.24" aria-valuemin="0" aria-valuemax="40" style="width: 26.21%;">
+                          12.24
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="3.39" aria-valuemin="0" aria-valuemax="15" style="width: 22.62%;">
+                          3.39
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>InternLM-XComposer2-7B</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.86" aria-valuemin="0" aria-valuemax="40" style="width: 25.19%;">
+                          11.86
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="4.78" aria-valuemin="0" aria-valuemax="15" style="width: 31.84%;">
+                          4.78
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>GPT4ROI</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="1.46" aria-valuemin="0" aria-valuemax="40" style="width: 3.24%;">
+                          <div class="progress-text">1.46</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0.01" aria-valuemin="0" aria-valuemax="15" style="width: 0.04%;">
+                          <div class="progress-text">0.01</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Osprey</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="6.81" aria-valuemin="0" aria-valuemax="40" style="width: 15.13%;">
+                          6.81
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="2.18" aria-valuemin="0" aria-valuemax="15" style="width: 14.51%;">
+                          2.18
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>NextChat</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="7.65" aria-valuemin="0" aria-valuemax="40" style="width: 17%;">
+                          7.65
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>GlaMM</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="9.11" aria-valuemin="0" aria-valuemax="40" style="width: 15.54%;">
+                          9.11
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="6.06" aria-valuemin="0" aria-valuemax="15" style="width: 10.33%;">
+                          <div class="progress-text-0">6.06</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+               <tr>
+                    <td>OMG-LLaVA-InternLM-20B</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.74" aria-valuemin="0" aria-valuemax="40" style="width: 20.03%;">
+                          11.74
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="6.06" aria-valuemin="0" aria-valuemax="15" style="width: 14.28%;">
+                          <div class="progress-text-0">8.37</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+              <tr>
+                    <td>AnyGPT</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.74" aria-valuemin="0" aria-valuemax="40" style="width: 20.03%;">
+                          27.42
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="6.06" aria-valuemin="0" aria-valuemax="15" style="width: 14.28%;">
+                          <div class="progress-text-0">7.79</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                            <tr>
+                    <td>NextGPT</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.74" aria-valuemin="0" aria-valuemax="40" style="width: 20.03%;">
+                          27.20
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="6.06" aria-valuemin="0" aria-valuemax="15" style="width: 14.28%;">
+                          <div class="progress-text-0">11.09</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 14%;">
+                          <div class="progress-text-0">7.6</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                            <tr>
+                    <td>Vitron</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.74" aria-valuemin="0" aria-valuemax="40" style="width: 20.03%;">
+                          45.34
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="6.06" aria-valuemin="0" aria-valuemax="15" style="width: 14.28%;">
+                          <div class="progress-text-0">16.84</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 14%;">
+                          <div class="progress-text-0">14.33</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                            <tr>
+                    <td>LaVIT-V2-7B</td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.74" aria-valuemin="0" aria-valuemax="40" style="width: 20.03%;">
+                          27.47
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="6.06" aria-valuemin="0" aria-valuemax="15" style="width: 14.28%;">
+                          <div class="progress-text-0">8.99</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 14%;">
+                          <div class="progress-text-0">8.04</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
+                          <div class="progress-text-0">0</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="text-align: left;margin-top: 30px;color: red;">
+            The visualization of the above Generalist Levels will subsequently be styled as follows &darr;
+          </p>
+          <br>
+          <img src="static/images/demo-vis.png" alt="pipeline" class="center" style="width: 100%;">
+        </div>
+
+
+        <h2 class="title is-3" >Multimodal Tasks</h2>
+        <div class="content">
+          <div class="content has-text-justified">
+            <p>
+            Below is the original quantitative performance of all MLLMs across all tasks.
+            </p>
+          </div>
+
+          <style>
+            .task-button {
+                border: none; /* Removes the default border */
+                color: rgb(0, 0, 0); /* Sets the text color */
+                /* padding: 10px 20px; Adds padding inside the button */
+                font-size: 16px; /* Sets the font size */
+                cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
+                /* transition: background-color 0.3s; Smooth transition for hover effect */
+                margin: 5px; /* Adds a small space between buttons */
+            }
+
+            .task-button:hover {
+                background-color: #999; /* Changes background on hover */
+            }
+          </style>
+          <div class="model-labels-container">
+            <!-- <span class="leaderboard-label" style="background-color: #f8fffe;">Open-Source</span>
+            <span class="leaderboard-label" style="background-color: #f9f2f8;">Closed</span> -->
+            
+            <button class="task-button" style="background-color: #ddffec;"><span style="color:#04B153; font-weight:bold;">C</span>omprehension Tasks</button>
+            <button class="task-button" style="background-color: #d2f2fd;"> <span style="color:#05B1F0; font-weight:bold;">G</span>eneration Tasks</button>
+            <button class="task-button" style="background-color: #ffecec;">N<span style="color:#cc1a1a; font-weight:bold;">L</span>P Tasks</button>
+          </div>
+          <!-- <br> -->
+          <style>
+            .table-container {
+                overflow: scroll; /* Enables scrolling */
+                height: 700px; /* Adjust based on your needs */
+                width: 100%; /* Adjust based on your needs */
+            }
+
+            #leaderboard table {
+                border-collapse: collapse;
+                width: 300px; /* Larger than the container to force scroll */
+                border: none;
+
+            }
+
+            #leaderboard th, td {
+                min-width: 160px; /* Ensures cell width */
+                /* border: 1px solid black; */
+                /* background-color: #f9f9f9; */
+                padding: 8px;
+                text-align: left;
+            }
+
+            #leaderboard th {
+                min-width: 160px; /* Ensures cell width */
+                background-color: #F2F2F2;
+                vertical-align: middle;
+                text-align: center;   
+                position: sticky;
+                top: 0; /* Stick to the top of the table viewport */
+                z-index: 2; /* Ensures the header is above other content */
+            }
+
+
+            #leaderboard .mllm {
+                background-color: #ffebcd;
+            }
+
+            .leaderboard-content {
+                background-color: #f9f9f9;
+            }
+
+            #leaderboard .sticky-column-1 {
+                position: sticky;
+                /* background-color: #f9f9f9; */
+                /* background-color: #ddffec; */
+                text-align: left;
+            } 
+            #leaderboard .sticky-column-2 {
+                position: sticky;
+                /* background-color: #f9f9f9; */
+                text-align: left;
+            }
+            .sticky-column-1 {
+              left: 0;
+              z-index: 1;
+              
+            } 
+            .sticky-column-2 {
+              left: 160px;
+              z-index: 1;
+            }
+            
+            .comprehension {
+                background-color: #ddffec;
+            }
+
+            .generation {
+                background-color: #d2f2fd;
+            }
+
+            .nlp {
+                background-color: #ffecec;
+            }
+
+          </style>
+          <div class="table-container" id="leaderboard">
+            <table>
+              <thead>
+                  <tr>
+                      <th>Task</th>
+                      <th>Dataset</th>
+                      <th>SoTA Specialist</th>
+                      <th>Metrics</th>
+                      <th>SoTA Score</th>
+                      <th class="mllm">GPT4v</th>
+                      <th class="mllm">GPT4o</th>
+                      <th class="mllm">LLaVA1.5-7B</th>
+                      <th class="mllm">miniGemnini-7B</th>
+                      <th class="mllm">QwenVL-Plus</th>
+                      <th class="mllm">InternVL</th>
+                      <th class="mllm">MoE-LLaVA-1.8B-4e</th>
+                      <th class="mllm">YiVL-6B</th>
+                      <th class="mllm">BLIP2</th>
+                      <th class="mllm">Emu2-37B</th>
+                      <th class="mllm">SEED-LLaMA-14B-SFT</th>
+                      <th class="mllm">InternLM-XComposer2-7B</th>
+                      <th class="mllm">LaVIT-V2-7B</th>
+                      <th class="mllm">GPT4ROI</th>
+                      <th class="mllm">Ospery</th>
+                      <th class="mllm">NextChat</th>
+                      <th class="mllm">GlaMM</th>
+                      <th class="mllm">OMG-LLaVA-InternLM-20B</th>
+                      <th class="mllm">AnyGPT</th>
+                      <th class="mllm">NextGPT</th>
+                      <th class="mllm">Vitron</th>
+                      <th class="mllm">miniGPT-4</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr class="leaderboard-content">
+                      <td class="sticky-column-1 comprehension" rowspan="2" style="vertical-align: middle;">Object Counting</td>
+                      <td class="sticky-column-2 comprehension"><a href="https://arxiv.org/pdf/2104.08391">FSC147</a></td>
+                      <td rowspan="2" style="text-align: center; vertical-align: middle;"><a href="https://arxiv.org/pdf/2208.13721v3">counTR</a> </td>
+                      <td rowspan="2" style="text-align: center; vertical-align: middle;">MAE</td>
+                      <td>14.49</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>25.20</td>
+                      <td>44.20</td>
+                      <td>34.20</td>
+                      <td>27.00</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+
+                      
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Object Counting</td> -->
+                    <td class="sticky-column-2 comprehension"><a href="https://lafi.github.io/LPN/">CARPK</a> </td>
+                    <td>6.39</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>58.10</td>
+                    <td>61.42</td>
+                    <td>49.89</td>
+                    <td>56.20</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 comprehension" >OCR</td>
+                    <td class="sticky-column-2 comprehension" ><a href="https://textvqa.org/textocr/download/"> TextOCR</a></td>
+                    <td><a href="https://github.com/baudm/parseq"> parseq</a></td>
+                    <td>ANLS</td>
+                    <td>94.79</td>
+                    <td>73.01</td>
+                    <td>73.21</td>
+                    <td>84.18</td>
+                    <td>79.39</td>
+                    <td>91.01</td>
+                    <td>86.10</td>
+                    <td>34.09</td>
+                    <td>86.14</td>
+                    <td>74.50</td>
+                    <td>90.44</td>
+                    <td>37.27</td>
+                    <td>54.79</td>
+                    <td>64.67</td>
+                    <td>8.54</td>
+                    <td>62.17</td>
+                    <td>59.52</td>
+                    <td>1.00</td>
+                    <td>47.80</td>
+                    <td>51.22</td>
+                      <td>49.32</td>
+                      <td>65.85</td>
+                      <td>15.74</td>
+
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 comprehension" >Image Classification</td>
+                    <td class="sticky-column-2 comprehension" ><a href="https://www.cs.toronto.edu/~kriz/cifar.html"> CIFAR-100</a></td>
+                    <td><a href="https://github.com/Rishit-dagli/Astroformer"> Astroformer</a></td>
+                    <td>ACC</td>
+                    <td>86.30</td>
+                    <td>57.00</td>
+                    <td>80.67</td>
+                    <td>52.33</td>
+                    <td>38.67</td>
+                    <td>49.66</td>
+                    <td>76.00</td>
+                    <td>29.87</td>
+                    <td>64.67</td>
+                    <td>17.30</td>
+                    <td>40.00</td>
+                    <td>21.00</td>
+                    <td>54.67</td>
+                    <td>33.67</td>
+                    <td>12.33</td>
+                    <td>12.67</td>
+                    <td>10.00</td>
+                    <td>43.60</td>
+                    <td>6.00</td>
+                    <td>37.62</td>
+                      <td>46.33</td>
+                      <td>57.80</td>
+                      <td>26.66</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 comprehension" >Text-to-Image Retrieval</td>
+                    <td class="sticky-column-2 comprehension" ><a href="https://shannon.cs.illinois.edu/DenotationGraph/"> Flickr30k</a></td>
+                    <td>CLIP</td>
+                    <td>Recall@1</td>
+                    <td>81.33</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 comprehension" >Image Caption</td>
+                    <td class="sticky-column-2 comprehension" ><a href="https://cocodataset.org/#home"> COCO-Caption</a></td>
+                    <td>GRIT</td>
+                    <td>ROUGH-L</td>
+                    <td>62.75</td>
+                    <td>40.80</td>
+                    <td>40.36</td>
+                    <td>47.11</td>
+                    <td>23.68</td>
+                    <td>29.24</td>
+                    <td>45.24</td>
+                    <td>42.40</td>
+                    <td>28.93</td>
+                    <td>50.71</td>
+                    <td>46.30</td>
+                    <td>18.90</td>
+                    <td>24.40</td>
+                    <td>46.32</td>
+                    <td>43.10</td>
+                    <td>46.60</td>
+                    <td>49.30</td>
+                    <td>56.30</td>
+                    <td>23.20</td>
+                    <td>23.75</td>
+                    <td>46.55</td>
+                      <td>50.32</td>
+                      <td>23.79</td>
+
+
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 comprehension" >Depth Estimation</td>
+                    <td class="sticky-column-2 comprehension" ><a href="https://cs.nyu.edu/~fergus/datasets/nyu_depth_v2.html"> NYU-v2</a></td>
+                    <td>TransDepth</td>
+                    <td>ACC</td>
+                    <td>87.30</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 comprehension" >Image Matting</td>
+                    <td class="sticky-column-2 comprehension" ><a href="https://github.com/JizhiziLi/GFM?tab=readme-ov-file#am-2k"> AM-2k</a></td>
+                    <td>GFM</td>
+                    <td>MSE</td>
+                    <td>0.29</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 comprehension" >KeyPoint Detection</td>
+                    <td class="sticky-column-2 comprehension" ><a href="https://github.com/liruilong940607/OCHumanApi"> OCHuman</a></td>
+                    <td>BUCTD</td>
+                    <td rowspan="2" style="vertical-align: middle;">AP</td>
+                    <td>43.90</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 comprehension" >Object Detection</td>
+                    <td class="sticky-column-2 comprehension" ><a href="https://cocodataset.org/#home"> MSCOCO</a></td>
+                    <td>DINO</td>
+                    <td>55.56</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>35.60</td>
+                    <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 comprehension"  rowspan="3" style="vertical-align: middle;">Visual Grounding</td>
+                    <td class="sticky-column-2 comprehension" ><a href="https://github.com/lichengunc/refer"> RefCOCO</a></td>
+                    <td rowspan="3" style="text-align: center; vertical-align: middle;">polygon-former</td>
+                    <td rowspan="3" style="text-align: center; vertical-align: middle;">AP@0.1</td>
+                    <td>90.91</td>
+                    <td>0</td>
+                    <td>87.67</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>18.33</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>29.00</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>3.04</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>39.33</td>
+                    <td>97.00</td>
+                    <td>96.00</td>
+                    <td>0</td>
+                      <td>0</td>
+                      <td>56.45</td>
+                      <td>0</td>
+
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Visual Grounding</td> -->
+                    <td class="sticky-column-2 comprehension" ><a href="https://github.com/lichengunc/refer"> RefCOCO+</a></td>
+                    <td>85.97</td>
+                    <td>0</td>
+                    <td>50.30</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>13.33</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>25.33</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>2.49</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>31.33</td>
+                    <td>92.70</td>
+                    <td>89.00</td>
+                    <td>0</td>
+                      <td>0</td>
+                      <td>67.41</td>
+                      <td>0</td>
+
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Visual Grounding</td> -->
+                    <td class="sticky-column-2 comprehension" ><a href="https://arxiv.org/pdf/1608.00272"> RefCOCOg</a></td>
+                    <td>84.76</td>
+                    <td>0</td>
+                    <td>14.70</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>7.00</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>8.67</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>2.99</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>31.00</td>
+                    <td>55.70</td>
+                    <td>86.70</td>
+                    <td>0</td>
+                      <td>0</td>
+                      <td>63.85</td>
+                      <td>0</td>
+                    
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 comprehension" >Semantic Segmentation</td>
+                    <td class="sticky-column-2 comprehension" ><a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/"> PASCAL VOC 2012</a></td>
+                    <td>SegCLIP</td>
+                    <td>mIoU</td>
+                    <td>51.80</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                      <td>35.14</td>
+                      <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 comprehension"  rowspan="2" style="vertical-align: middle;">Instance Segmentation</td>
+                    <td class="sticky-column-2 comprehension" ><a href="https://www.cityscapes-dataset.com/dataset-overview/"> Cityspaces</a></td>
+                    <td rowspan="4" style="text-align: center; vertical-align: middle;">OneFormer</td>
+                    <td rowspan="2" style="text-align: center; vertical-align: middle;">AP</td>
+                    <td>45.68</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>23.45</td>
+                    <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Instance Segmentation</td> -->
+                    <td class="sticky-column-2 comprehension" ><a href="https://groups.csail.mit.edu/vision/datasets/ADE20K/"> ADE20k</a></td>
+                    <td>35.95</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>17.89</td>
+                    <td>0</td>
+                    
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 comprehension"  rowspan="2" style="vertical-align: middle;">Panoptic Segmentation</td>
+                    <td class="sticky-column-2 comprehension" ><a href="https://www.cityscapes-dataset.com/dataset-overview/"> Cityspaces</a></td>
+                    <td rowspan="2" style="text-align: center; vertical-align: middle;">PQ</td>
+                    <td>67.33</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>29.78</td>
+                    <td>0</td>
+                    
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Panoptic Segmentation</td> -->
+                    <td class="sticky-column-2 comprehension" ><a href="https://groups.csail.mit.edu/vision/datasets/ADE20K/"> ADE20k</a></td>
+                    <td>48.34</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>20.61</td>
+                    <td>0</td>
+                    
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 comprehension" >Anomaly Detection</td>
+                    <td class="sticky-column-2 comprehension" ><a href="https://www.mvtec.com/company/research/datasets/mvtec-ad"> MVTecAD</a></td>
+                    <td>DMAD</td>
+                    <td>AUC</td>
+                    <td>97.50</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 comprehension"  rowspan="5" style="vertical-align: middle;">VQA</td>
+                    <td class="sticky-column-2 comprehension" ><a href="https://cs.stanford.edu/people/dorarad/gqa/about.html"> GQA</a></td>
+                    <td rowspan="4" style="text-align: center; vertical-align: middle;">GIT</td>
+                    <td rowspan="4" style="text-align: center; vertical-align: middle;">ACC</td>
+                    <td>44.67</td>
+                    <td>25.67</td>
+                    <td>25.00</td>
+                    <td>70.00</td>
+                    <td>69.67</td>
+                    <td>68.33</td>
+                    <td>72.67</td>
+                    <td>67.00</td>
+                    <td>55.33</td>
+                    <td>22.30</td>
+                    <td>74.00</td>
+                    <td>59.11</td>
+                    <td>56.15</td>
+                    <td>47.90</td>
+                    <td>0</td>
+                    <td>64.66</td>
+                    <td>31.67</td>
+                    <td>0</td>
+                    <td>57.70</td>
+                    <td>43.95</td>
+                      <td>56.58</td>
+                      <td>68.40</td>
+                      <td>33.66</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>VQA</td> -->
+                    <td class="sticky-column-2 comprehension" ><a href="https://visualqa.org/"> VQAv2</a></td>
+                    <td>70.67</td>
+                    <td>24.70</td>
+                    <td>53.67</td>
+                    <td>77.33</td>
+                    <td>77.33</td>
+                    <td>75.00</td>
+                    <td>77.67</td>
+                    <td>70.00</td>
+                    <td>65.33</td>
+                    <td>22.33</td>
+                    <td>78.33</td>
+                    <td>61.62</td>
+                    <td>36.03</td>
+                    <td>68.30</td>
+                    <td>0</td>
+                    <td>68.33</td>
+                    <td>60.00</td>
+                    <td>13.70</td>
+                    <td>67.30</td>
+                    <td>63.74</td>
+                      <td>67.60</td>
+                      <td>75.60</td>
+                      <td>13.33</td>
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>VQA</td> -->
+                    <td class="sticky-column-2 comprehension" ><a href="https://vizwiz.org/">VizWiz</a></td>
+                    <td>14.67</td>
+                    <td>54.00</td>
+                    <td>55.00</td>
+                    <td>22.33</td>
+                    <td>38.33</td>
+                    <td>52.51</td>
+                    <td>44.67</td>
+                    <td>21.00</td>
+                    <td>40.33</td>
+                    <td>10.33</td>
+                    <td>25.33</td>
+                    <td>52.33</td>
+                    <td>35.00</td>
+                    <td>41.00</td>
+                    <td>1.60</td>
+                    <td>14.33</td>
+                    <td>7.60</td>
+                    <td>0</td>
+                    <td>18.30</td>
+                    <td>11.22</td>
+                      <td>20.33</td>
+                      <td>50.40</td>
+                      <td>3.66</td>
+                    
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>VQA</td> -->
+                    <td class="sticky-column-2 comprehension" ><a href="https://okvqa.allenai.org/">OK-VQA</a></td>
+                    <td>36.67</td>
+                    <td>33.67</td>
+                    <td>47.67</td>
+                    <td>54.67</td>
+                    <td>56.00</td>
+                    <td>45.82</td>
+                    <td>59.00</td>
+                    <td>48.00</td>
+                    <td>46.00</td>
+                    <td>16.33</td>
+                    <td>55.33</td>
+                    <td>48.00</td>
+                    <td>54.00</td>
+                    <td>55.90</td>
+                    <td>0.30</td>
+                    <td>37.66</td>
+                    <td>29.00</td>
+                    <td>14.30</td>
+                    <td>45.70</td>
+                    <td>28.03</td>
+                      <td>40.30</td>
+                      <td>52.03</td>
+                      <td>0.90</td>
+                    
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>VQA</td> -->
+                    <td class="sticky-column-2 comprehension" ><a href="https://www.docvqa.org/">DocVQA</a></td>
+                    <td>Donut</td>
+                    <td>ANLS</td>
+                    <td>60.75</td>
+                    <td>68.99</td>
+                    <td>78.66</td>
+                    <td>15.94</td>
+                    <td>55.87</td>
+                    <td>82.58</td>
+                    <td>86.39</td>
+                    <td>23.53</td>
+                    <td>85.13</td>
+                    <td>3.40</td>
+                    <td>38.93</td>
+                    <td>7.65</td>
+                    <td>79.33</td>
+                    <td>21.57</td>
+                    <td>2.60</td>
+                    <td>13.48</td>
+                    <td>10.79</td>
+                    <td>14.50</td>
+                    <td>14.00</td>
+                    <td>17.56</td>
+                      <td>36.66</td>
+                      <td>25.80</td>
+                      <td>1.66</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 generation"  rowspan="4" style="vertical-align: middle;">Text-to-Image</td>
+                    <td class="sticky-column-2 generation" ><a href="https://github.com/IIGROUP/MM-CelebA-HQ-Dataset">MultiModal CeleA-HQ</a></td>
+                    <td>Lafite</td>
+                    <td rowspan="8" style="text-align: center; vertical-align: middle;">FID</td>
+                    <td>149.86</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>131.60</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>112.33</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>127.40</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>141.64</td>
+                      <td>123.30</td>
+                      <td>130.60</td>
+                      <td>0</td>
+                    
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Text-to-Image</td> -->
+                    <td class="sticky-column-2 generation" ><a href="https://www.image-net.org/">Imagenet</a></td>
+                    <td>VQ-diffusion</td>
+                    <td>126.69</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>133.09</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>224.63</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>157.20</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>227.83</td>
+                      <td>163.88</td>
+                      <td>143.05</td>
+                      <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Text-to-Image</td> -->
+                    <td class="sticky-column-2 generation" ><a href="https://cocodataset.org/#home"> MSCOCO</a></td>
+                    <td rowspan="2" style="text-align: center; vertical-align: middle;">Lafite</td>
+                    <td>280.92</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>148.07</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>146.89</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>142.20</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>126.84</td>
+                      <td>198.01</td>
+                      <td>169.30</td>
+                      <td>0</td>
+
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Text-to-Image</td> -->
+                    <td class="sticky-column-2 generation" ><a href="https://www.vision.caltech.edu/datasets/cub_200_2011/">CUB</a></td>
+                    <td>121.54</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>54.17</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>71.33</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>75.70</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>74.67</td>
+                      <td>82.30</td>
+                    <td>100.72</td>
+                    <td>0</td>
+
+                    
+                    <!-- <td>Lafite</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 generation"  rowspan="2" style="vertical-align: middle;">Sketch-to-Image</td>
+                    <td class="sticky-column-2 generation" ><a href="https://arxiv.org/pdf/1909.11081v2">Scribble</a></td>
+                    <td rowspan="2" style="text-align: center; vertical-align: middle;">PITI</td>
+                    <td>312.13</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>350.76</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>406.01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>423.40</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>357.91</td>
+                      <td>505.66</td>
+                      <td>324.25</td>
+                      <td>0</td>
+
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Setch-to-Image</td> -->
+                    <td class="sticky-column-2 generation" ><a href="https://github.com/sysu-imsl/SketchyCOCO">SketchyCOCO</a></td>
+                    <td>274.40</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>232.41</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>171.88</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>186.10</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>171.91</td>
+                      <td>326.40</td>
+                      <td>208.35</td>
+                      <td>0</td>
+                    
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 generation"  rowspan="2" style="vertical-align: middle;">Layout-to-Image</td>
+                    <td class="sticky-column-2 generation" ><a href="https://github.com/nightrome/cocostuff">COCOStuff</a></td>
+                    <td rowspan="2" style="text-align: center; vertical-align: middle;">LayoutDiffusion</td>
+                    <td>141.34</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>187.08</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>269.26</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>238.90</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>141.35</td>
+                      <td>350.30</td>
+                    <td>231.17</td>
+                    <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Layout-to-Image</td> -->
+                    <td class="sticky-column-2 generation" ><a href="https://homes.cs.washington.edu/~ranjay/visualgenome/index.html">Visual Genome</a></td>
+                    <td>131.80</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>381.31</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>271.40</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>171.70</td>
+                      <td>410.10</td>
+                    <td>269.02</td>
+                    <td>0</td>
+                    <!-- <td>HAT</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 generation"  rowspan="4" style="vertical-align: middle;">SuperResolution</td>
+                    <td class="sticky-column-2 generation" ><a href="https://github.com/jbhuang0604/SelfExSR">Set14</a></td>
+                    <td rowspan="4" style="text-align: center; vertical-align: middle;">HAT</td>
+                    <td rowspan="4" style="text-align: center; vertical-align: middle;">PSNR</td>
+                    <td>35.29</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>28.00</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>SuperResolution</td> -->
+                    <td class="sticky-column-2 generation" ><a href="https://figshare.com/articles/dataset/BSD100_Set5_Set14_Urban100/21586188">BSD100</a></td>
+                    <td>32.74</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>28.10</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                    
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>SuperResolution</td> -->
+                    <td class="sticky-column-2 generation" ><a href="http://www.manga109.org/en/annotations.html">Manga109</a></td>
+                    <td>41.01</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>28.68</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                    
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>SuperResolution</td> -->
+                    <td class="sticky-column-2 generation" >Urban</td>
+                    <td>35.09</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>28.13</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 generation"  rowspan="3" style="vertical-align: middle;">Image Inpainting</td>
+                    <td class="sticky-column-2 generation" ><a href="http://places2.csail.mit.edu/download.html">Places2</a></td>
+                    <td rowspan="3" style="text-align: center; vertical-align: middle;">mat</td>
+                    <td rowspan="3" style="text-align: center; vertical-align: middle;">FID</td>
+                    <td>40.38</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>111.67</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>121.40</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>93.12</td>
+                      <td>153.06</td>
+                    <td>123.56</td>
+                    <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Image Inpainting</td> -->
+                    <td class="sticky-column-2 generation" ><a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html">CelebA-HQ</a></td>
+                    <td>12.69</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>47.87</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>67.30</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>81.65</td>
+                      <td>76.33</td>
+                    <td>64.02</td>
+                    <td>0</td>
+
+                    
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Image Inpainting</td> -->
+                    <td class="sticky-column-2 generation" ><a href="https://github.com/NVlabs/ffhq-dataset">FFHQ</a></td>
+                    <td>16.91</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>64.49</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>57.10</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>107.05</td>
+                      <td>88.41</td>
+                    <td>34.80</td>
+                    <td>0</td>
+
+                    
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 generation"  rowspan="2" style="vertical-align: middle;">Text-based Image Editing</td>
+                    <td class="sticky-column-2 generation" ><a href="https://github.com/cure-lab/PnPInversion">PIE-Bench</a></td>
+                    <td>Prompt-to-Prompt</td>
+                    <td>LPIPS</td>
+                    <td>33.91</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>37.58</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>41.61</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>36.74</td>
+                    <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Text-based Image Editing</td> -->
+                    <td class="sticky-column-2 generation" ><a href="https://github.com/shadow2496/VITON-HD">VITON-HD</a></td>
+                    <td>mgd</td>
+                    <td rowspan="3" style="text-align: center; vertical-align: middle;">FID</td>
+                    <td>30.69</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>166.07</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>65.33</td>
+                    <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 generation"  rowspan="2" style="vertical-align: middle;">Semantic Image Synthesis</td>
+                    <td class="sticky-column-2 generation" ><a href="https://groups.csail.mit.edu/vision/datasets/ADE20K/"> ADE20k</a></td>
+                    <td rowspan="2" style="text-align: center; vertical-align: middle;">INADE</td>
+                    <td>48.28</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>312.10</td>
+                    <td>217.36</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>186.07</td>
+                    <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Semantic Image Synthesis</td> -->
+                    <td class="sticky-column-2 generation" ><a href="https://www.cityscapes-dataset.com/dataset-overview/"> Cityspaces</a></td>
+                    <td>87.16</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>226.02</td>
+                    <td>181.96</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>175.33</td>
+                    <td>0</td>
+                    
+                    <!-- <td>WaveNet</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 generation" >Low-light Image Enhancement</td>
+                    <td class="sticky-column-2 generation" ><a href="https://daooshee.github.io/BMVC2018website/"> LOL</a></td>
+                    <td>WaveNet</td>
+                    <td rowspan="4" style="text-align: center; vertical-align: middle;">PSNR</td>
+                    <td>25.44</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>27.91</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>28.33</td>
+                      <td>0</td>
+                    <td>34.86</td>
+                    <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 generation" >Image Denoising</td>
+                    <td class="sticky-column-2 generation" ><a href="https://abdokamel.github.io/sidd/"> SIDD</a></td>
+                    <td>HINet</td>
+                    <td>39.80</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>28.16</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                      <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 generation"  rowspan="2" style="vertical-align: middle;">Image deblurring</td>
+                    <td class="sticky-column-2 generation" ><a href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Nah_Deep_Multi-Scale_Convolutional_CVPR_2017_paper.pdf"> GoPro</a></td>
+                    <td rowspan="2" style="text-align: center; vertical-align: middle;">LAKDNet</td>
+                    <td>33.48</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>27.97</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>27.91</td>
+                      <td>56.31</td>
+                    <td>40.66</td>
+                    <td>0</td>
+
+                    
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <!-- <td>Image Deblurring</td> -->
+                    <td class="sticky-column-2 generation" ><a href="https://github.com/joanshen0508/HA_deblur"> HIDE</a></td>
+                    <td>32.60</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>27.93</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>27.88</td>
+                      <td>51.03</td>
+                    <td>38.27</td>
+                    <td>0</td>
+                    <!-- <td>row</td> -->
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 nlp"  rowspan="10" style="vertical-align: middle;">Text Classification</td>
+                    <td class="sticky-column-2 nlp" >20 Newsgroups</td>
+                    <td rowspan="10" style="text-align: center; vertical-align: middle;">Flan-T5-XL</td>
+                    <td rowspan="10" style="text-align: center; vertical-align: middle;">F1</td>
+                    <td>48.30</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >AG News</td>
+                    <td>90.80</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >IMDB</td>
+                    <td>96.70</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >SST</td>
+                    <td>96.20</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >Yelp</td>
+                    <td>55.80</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >TREC</td>
+                    <td>93.60</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >DBpedia</td>
+                    <td>79.80</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >FakeNewsNet</td>
+                    <td>58.33</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >SNLI</td>
+                    <td>86.90</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >Quora</td>
+                    <td>83.10</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 nlp"  rowspan="12" style="vertical-align: middle;">Information Extraction</td>
+                    <td class="sticky-column-2 nlp" >NER</td>
+                    <td rowspan="12" style="text-align: center; vertical-align: middle;">Flan-T5-XL</td>
+                    <td rowspan="12" style="text-align: center; vertical-align: middle;">F1</td>
+                    <td>19.85</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >CoNLL-2003</td>
+                    <td>13.28</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >OntoNotes 5.0</td>
+                    <td>10.24</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >semeval-2010-task-8</td>
+                    <td>33.7</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >DocRed</td>
+                    <td>0.21</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >DialogRE</td>
+                    <td>10.93</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >ACE 2005</td>
+                    <td>0.96</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >Semeval 14</td>
+                    <td>43.47</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >CoNLL 2014</td>
+                    <td>0</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >SNIPS</td>
+                    <td>94.14</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >UPB</td>
+                    <td>0</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >SQuAD 2.0</td>
+                    <td>43.90</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-1 nlp"  rowspan="8" style="vertical-align: middle;">Text Generation</td>
+                    <td class="sticky-column-2 nlp" >HotpotQA</td>
+                    <td rowspan="8" style="text-align: center; vertical-align: middle;">Flan-T5-XL</td>
+                    <td rowspan="8" style="text-align: center; vertical-align: middle;">F1</td>
+                    <td>48.85</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >CoQA</td>
+                    <td>55.10</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >NewsQA</td>
+                    <td>23.62</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >RACE</td>
+                    <td>85.60</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >ReCoRD</td>
+                    <td>55.89</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >MS MARCO</td>
+                    <td>35.49</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >MultiRC</td>
+                    <td>41.44</td>
+                  </tr>
+                  <tr class="leaderboard-content">
+                    <td class="sticky-column-2 nlp" >CNN-Daily Mail</td>
+                    <td>24.47</td>
+                  </tr>
+
+                  <!-- More rows as needed -->
+              </tbody>
+            </table>
+          </div>
+           
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Submit your MLLM!</h2>
+        <div class="content has-text-justified">
+          <p>
+            To analyze the error distribution of LVLMs on the MMTBench, we examined three LVLMs: GPT-4V, GeminiProVision, and InternVL-Chat-V1.2 (InternVL).
+            In results, perception error stands out as the most common type of error across all models, with GPT-4V exhibiting a significantly lower perception error rate (51%) compared to GeminiProVision (76.9%) and InternVL (67.2%), indicating its superior performance in perception tasks.
+            Reasoning error emerges as the second most prevalent error type, with InternVL having the highest reasoning error rate (14.8%), followed by GeminiProVision (10.4%) and GPT-4V (9.94%), highlighting the challenges all models face in complex reasoning tasks.
+          </p>
+        </div>
+        <!-- <div class="content has-text-centered">
+          <img src="static/images/error_distribution.png" alt="error distribution" width="60%">
+          <p> Distribution of error types for GPT-4V, GeminiProVision and InternVL-Chat-V1.2.</p>
+        </div> -->
+        <!-- <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/error_distribution_1.Jpeg" alt="algebraic reasoning" width="45%"/>
+              <p> Error distribution over 150 annotated GPT-4V errors.</p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/error_case_main_text_1_1.Jpeg" alt="arithmetic reasoning" width="45%"/>
+              <p> A basic perceptual error, easy for humans but challenging for GPT-4V.</p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="hero is-light is-small" id="contact">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 MMT-Bench"><i class="fa-solid fa-headphones"></i> Contact</h1>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+<!--    <div class="columns is-centered m-6">-->
+      <div class="column is-full has-text-centered content">
+<!--        <h2 class="title is-3">Leaderboard of Generalist Levels</h2>-->
+        <div class="content has-text-justified">
+          <p>
+            For any inquiries regarding technique or collaboration of this project, please feel free to reach out
+              <a href="mailto:haofei7419@gmail.com" target="_blank" rel="noopener">Hao Fei</a>,
+              <a href="mailto:haofei7419@gmail.com" target="_blank" rel="noopener">Yuan Zhou</a> and
+              <a href="mailto:hanwangzhang@ntu.edu.sg" target="_blank" rel="noopener">Hanwang Zhang</a>,
+              or create an issue on <a href="https://github.com/path2generalist/GeneralBench" target="_blank">Github</a>.
+          </p>
+        </div>
+      </div>
+<!--    </div>-->
+
+
+    <!-- <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3" id="examples">Case Study</h2>
+          <div class="image-row">
+            <img src="static/images/error/error_26.png" alt="Image 1">
+            <img src="static/images/error/error_32.png" alt="Image 2">
+          </div>
+          <p>
+            Please see more cases in our paper for further discussions.
+          </p>
+      </div>
+    </div> -->
+
+
+    <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <p>If you feel this project is useful to your research, please kindly use the following BibTeX entry to cite our paper. Thanks!
+    </p>
+    <pre><code>@articles{hao2024path2generalist,
+      title={Path to Multimodal Generalist: Level, Benchmark and Model},
+      author={Hao Fei and Yuan Zhou and Juncheng Li and Xiangtai Li and Yucheng Han and Wentao Hu and Liyu Jia and Shengqiong Wu and Peng Zhou and Lin Liu and Haobo Yuan and Tao Zhang and Bobo Li and Zixiang Meng and Chengjie Zhou and Minghe Gao and Kaihang Pan and Yaobo Ye and Mingze Zhou and Zhiqi Ge and Hanwang Zhang and Shuicheng Yan},
+      year={2024},
+      eprint={2404.123456},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+</code></pre>
+  </div>
+  </div>
+</section>
+
+
+
+<footer class="footer">
+  <!-- <div class="container"> -->
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8" style="color: aliceblue;">
+        <div class="content">
+          <p>
+            This website is partially adapted from <a href="https://mmt-bench.github.io/">MMT-Bench</a>
+              <a href="https://mmmu-benchmark.github.io/">MMMU</a>, <a href="https://mathvista.github.io/">MathVista</a> and <a href="https://nerfies.github.io/">Nerfies</a>, licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+
+</footer>
+
+
+<style>
+  .hidden {
+      display: none;
+  }
+  .sortable:hover {
+      cursor: pointer;
+  }
+  .asc::after {
+      content: ' ↑';
+  }
+  .desc::after {
+      content: ' ↓';
+  }
+  #toggleButton {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    color: #555555;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px; 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition-duration: 0.4s;
+  }
+
+  #toggleButton:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); /* 鼠标悬停时的阴影效果 */
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+  }
+
+  th, td {
+      text-align: left;
+      padding: 8px;
+  }
+
+  th {
+      background-color: #f2f2f2;
+      border-bottom: 2px solid #ddd;
+  }
+
+  td:hover {background-color: #ffffff;}
+</style>
+</body>
+</html>
