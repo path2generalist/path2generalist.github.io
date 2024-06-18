@@ -28,7 +28,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
-  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
@@ -282,17 +283,6 @@
   }
 </style>
 
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
-        <div class="content has-text-centered">
-          <img src="static/images/overview_mmtbench.png" alt="MMT-bench" width="100%"/>
-          <p> Visualization of MMT-Bench. Our MMT-Bench consists of 32 meta-tasks (middle ring) which are decomposed into 162 subtasks (outer ring). For each meta-task, we denote the number of subtasks in it and illustrate one example of the pair of the image
-            and the question. MMT-Bench can be comprehensive enough to evaluate the multitask performance of LVLMs.</p>
-        </div>
-    </div>
-  </div>
-</section> -->
-
 
 
 <!-- NEWS -->
@@ -313,8 +303,11 @@
     </div>
 </div>
 </section>
+<!-- NEWS -->
 
 
+
+<!-- Overview -->
 <section class="hero is-light is-small" id="overview">
   <div class="hero-body has-text-centered">
     <h1 class="title is-1 MMT-Bench"><i class="fa-solid fa-globe"></i> Overview</h1>
@@ -358,8 +351,7 @@
     </div>
 </div>
 </section>
-
-<!-- NEWS -->
+<!-- Overview -->
 
 
 
@@ -375,7 +367,7 @@
 <section class="section">
   <div class="container">
 
-
+    <!-- Principles -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Principles</h2>
@@ -404,6 +396,7 @@
     </div>
     </div>
 
+    <!-- Definition -->
     <div class="columns is-centered has-text-centered">
       <!-- <div class="column is-full-width has-text-centered"> -->
       <div class="column is-four-fifths">
@@ -418,7 +411,7 @@
                 <th style="background-color:#4CAFB9; font-size: larger;">Example</th>
             </tr>
             <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
-                <td style="text-align: left;"><b>Level-0</b> : Specialist</td>
+                <td style="text-align: left;"><b>Level-1</b> : Specialist</td>
                 <td style="text-align: left;">Models are task-specific players</td>
                 <td>N.A.</td>
                 <td>SAM, Dino, DALLe, ChatGPT</td>
@@ -427,7 +420,7 @@
               <td colspan="4" style="text-align:center;">&darr; Upgrading Conditions: <span style="font-weight:bold; font-style:italic;">LLM as intelligence medium (<span style="color:#04B153; font-weight:bold;">C</span>omprehension or/and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration)</span></td>
             </tr>
             <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
-                <td style="text-align: left;"><b>Level-1</b> : Unified <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
+                <td style="text-align: left;"><b>Level-2</b> : Unified <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
                 <td style="text-align: left;">Models are task-unified players</td>
                 <td>$$ S_{2} =  \frac{1}{M+N} \sum_{i=1}^{M+N} \sigma_i  $$</td>
                 <td>GPT4v, Ilava, LVM</td>
@@ -436,7 +429,7 @@
               <td colspan="4" style="text-align:center;">&darr; Upgrading Conditions: <span style="font-weight:bold; font-style:italic;">Realizing synergy: multi-task joint learning</span></td>
             </tr>
             <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
-                <td style="text-align: left;"><b>Level-2</b> : Synergy in <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
+                <td style="text-align: left;"><b>Level-3</b> : Synergy in <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
                 <td style="text-align: left;">Models are task-unified players, and synergy is in <span style="color:#04B153; font-weight:bold;">C</span>omprehension and/or <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
                 <!-- <td>`S_{3} = \( \frac{1}{M+N} \sum_{i=1}^{M+N} \sigma_i \) (if \(\sigma_i \geq \sigma_{sota}\), else \quad 0)`</td> -->
                 <td>
@@ -453,7 +446,7 @@
               <td colspan="4" style="text-align:center;">&darr; Upgrading Conditions: <span style="font-weight:bold; font-style:italic;">Reconstruction loss for generation should be disentangled from compression learning loss</span></td>
             </tr>
             <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
-                <td style="width:25%; text-align: left;"><b>Level-3</b> : Synergy across <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
+                <td style="width:25%; text-align: left;"><b>Level-4</b> : Synergy across <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
                 <td style="width:25%; text-align: left;">Models are task-unified players, and synergy is across <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
                 <td style="width:30%;">$$ S_{4} = \frac{2 S_c S_g}{S_c + S_g}, \,\;\;\; \text{where} \\  S_g = \frac{1}{M} \sum_{i=1}^{M}  \begin{cases}
                   \sigma_i,  & \sigma_i \geq \sigma_{sota} \\\\
@@ -462,13 +455,13 @@
                   \sigma_j,  & \sigma_j \geq \sigma_{sota} \\\\
                   0
                   \end{cases} $$</td>
-                <td style="width:20%;">Emu2, NextGPT, SEED</td>
+                <td style="width:20%;">Emu2, NeXT-GPT, SEED</td>
             </tr>
             <tr style="background-color:#ffffff; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
               <td colspan="4" style="text-align:center;">&darr; Upgrading Conditions: <span style="font-weight:bold; font-style:italic;">Acquiring the capable of abductive reasoning, being context consistent, everything synergy </span></td>
             </tr>
             <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
-                <td style="text-align: left;"><b>Level-4</b> : Total Synergy across <span style="color:#04B153; font-weight:bold;">C</span>omprehension, <span style="color:#05B1F0; font-weight:bold;">G</span>eneration, and N<span style="color:#cc1a1a; font-weight:bold;">L</span>P</td>
+                <td style="text-align: left;"><b>Level-5</b> : Total Synergy across <span style="color:#04B153; font-weight:bold;">C</span>omprehension, <span style="color:#05B1F0; font-weight:bold;">G</span>eneration, and N<span style="color:#cc1a1a; font-weight:bold;">L</span>P</td>
                 <td style="text-align: left;">Models are task-unified players, and synergy is across <span style="color:#04B153; font-weight:bold;">C</span>omprehension, <span style="color:#05B1F0; font-weight:bold;">G</span>eneration, and N<span style="color:#cc1a1a; font-weight:bold;">L</span>P</td>
                 <td>$$ S_{5} = S_4 \times w_L, \,\;\;\; \text{where} \\  w_L = \frac{S_L}{S_{total}}, \\ S_L = \frac{1}{T} \sum_{k=1}^{T}  \begin{cases}
                   \sigma_k,  & \sigma_k \geq \sigma_{sota} \\\\
@@ -492,6 +485,8 @@
       width: 40%; /* Each image takes up 50% of the width */
   }
 </style>
+<!-- Level -->
+
 
 
 <!-- Benchmarks -->
@@ -504,6 +499,7 @@
 </section>
 <section class="section">
   <div class="container">
+    <!-- General-Bench -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">General-Bench</h2>
@@ -516,10 +512,10 @@
             manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
           </p>
         </div>
-    </div>
+      </div>
     </div>
 
-
+    <!-- Modalities -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Modalities</h2>
@@ -530,9 +526,10 @@
             manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
           </p>
         </div>
-    </div>
+      </div>
     </div>
 
+    <!-- Task Format -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Task Format</h2>
@@ -543,10 +540,10 @@
             manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
           </p>
         </div>
-    </div>
+      </div>
     </div>
 
-
+    <!-- Example -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Example</h2>
@@ -557,15 +554,15 @@
             manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
           </p>
         </div>
-    </div>
+      </div>
     </div>
 
     </div>
 </section>
+<!-- Benchmarks -->
 
 
-
-
+<!-- Leaderboard -->
 <section class="hero is-light is-small" id="leaderboard-x">
   <div class="hero-body has-text-centered">
     <h1 class="title is-1 MMT-Bench"><i class="fa-solid fa-trophy"></i> Leaderboard</h1>
@@ -573,11 +570,13 @@
 </section>
 <section class="section">
   <div class="container">
+
+    <!-- Generalist Levels -->
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
         <h2 class="title is-3" >Generalist Levels</h2>
         <div class="content">
-          <div class="content has-text-justified">
+          <!-- <div class="content has-text-justified">
             <p>
               We selected existing popular MLLMs for evaluation on benchmarks and scored them according to the defined rules for levels. Below are the Generalist Levels for MLLMs.
             </p>
@@ -664,18 +663,18 @@
               </thead>
               <tbody>
                   <tr>
-                      <td>LLaVA1.5-7B</td>
+                      <td>LLaVA 1.5(7B)</td>
                       <td>
                         <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="9.02" aria-valuemin="0" aria-valuemax="40" style="width: 13.53%;">
-                            <div class="progress-text-0">9.02</div>
+                          <div class="progress-bar" role="progressbar" aria-valuenow="9.02" aria-valuemin="0" aria-valuemax="40" style="width: 20.04%;">
+                            9.02
                           </div>
                         </div>
                       </td>
                       <td>
                         <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="4.77" aria-valuemin="0" aria-valuemax="15" style="width: 7.15%;">
-                            <div class="progress-text-0">4.77</div>
+                          <div class="progress-bar" role="progressbar" aria-valuenow="4.77" aria-valuemin="0" aria-valuemax="15" style="width: 31.82%;">
+                            4.77
                           </div>
                         </div>
                       </td>
@@ -695,17 +694,17 @@
                     </td>
                   </tr>
                   <tr>
-                      <td>GPT4v</td>
+                      <td>GPT-4v</td>
                       <td>
                         <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="8.04" aria-valuemin="0" aria-valuemax="40" style="width: 12.06%;">
-                            <div class="progress-text-0">8.04</div>
+                          <div class="progress-bar" role="progressbar" aria-valuenow="8.04" aria-valuemin="0" aria-valuemax="40" style="width: 17.86%;">
+                            8.04
                           </div>
                         </div>
                       </td>
                       <td>
                         <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="2.62" aria-valuemin="0" aria-valuemax="15" style="width: 3.93%;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="2.62" aria-valuemin="0" aria-valuemax="15" style="width: 17.45%;">
                             2.62
                           </div>
                         </div>
@@ -726,17 +725,17 @@
                     </td>
                   </tr>
                   <tr>
-                      <td>GPT4o</td>
+                      <td>GPT-4o</td>
                       <td>
                         <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="13.78" aria-valuemin="0" aria-valuemax="40" style="width: 20.67%;">
-                            <div class="progress-text-0">13.78</div>
+                          <div class="progress-bar" role="progressbar" aria-valuenow="11.02" aria-valuemin="0" aria-valuemax="40" style="width: 24.49%;">
+                            11.02
                           </div>
                         </div>
                       </td>
                       <td>
                         <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="3.86" aria-valuemin="0" aria-valuemax="15" style="width: 5.79%;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="3.86" aria-valuemin="0" aria-valuemax="15" style="width: 25.72%;">
                             3.86
                           </div>
                         </div>
@@ -757,18 +756,18 @@
                     </td>
                   </tr>
                   <tr>
-                      <td>QwenVL-Plus</td>
+                      <td>Qwen-VL-Plus</td>
                       <td>
                         <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="11.54" aria-valuemin="0" aria-valuemax="40" style="width: 17.31%;">
-                            <div class="progress-text-0">11.54
+                          <div class="progress-bar" role="progressbar" aria-valuenow="11.01" aria-valuemin="0" aria-valuemax="40" style="width: 24.47%;">
+                            11.01
                           </div>
                         </div>
                       </td>
                       <td>
                         <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="6.90" aria-valuemin="0" aria-valuemax="15" style="width: 10.35%;">
-                            <div class="progress-text-0">6.90</div>
+                          <div class="progress-bar" role="progressbar" aria-valuenow="6.90" aria-valuemin="0" aria-valuemax="15" style="width: 45.99%;">
+                            6.90
                           </div>
                         </div>
                       </td>
@@ -791,15 +790,15 @@
                     <td>InternVL</td>
                     <td>
                       <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="11.65" aria-valuemin="0" aria-valuemax="40" style="width: 17.475%;">
-                          <div class="progress-text-0">11.65</div>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.65" aria-valuemin="0" aria-valuemax="40" style="width: 25.9%;">
+                          11.65
                         </div>
                       </div>
                     </td>
                     <td>
                       <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="7.24" aria-valuemin="0" aria-valuemax="15" style="width: 10.86%;">
-                          <div class="progress-text-0">7.24</div>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="7.24" aria-valuemin="0" aria-valuemax="15" style="width: 48.28%;">
+                          7.24
                         </div>
                       </div>
                     </td>
@@ -819,7 +818,7 @@
                     </td>
                   </tr>
                   <tr>
-                      <td>MoE-LLaVA-1.8B-4E</td>
+                      <td>MoE-LLaVA-Qwen-1.8B-4e</td>
                       <td>
                         <div class="progress">
                           <div class="progress-bar" role="progressbar" aria-valuenow="7.15" aria-valuemin="0" aria-valuemax="40" style="width: 15.88%;">
@@ -850,18 +849,18 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>YiVL-6B</td>
+                    <td>Yi-VL(6B)</td>
                     <td>
                       <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="11.55" aria-valuemin="0" aria-valuemax="40" style="width: 23.63%;">
-                          11.55
+                        <div class="progress-bar" role="progressbar" aria-valuenow="10.64" aria-valuemin="0" aria-valuemax="40" style="width: 23.63%;">
+                          10.64
                         </div>
                       </div>
                     </td>
                     <td>
                       <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="4.83" aria-valuemin="0" aria-valuemax="15" style="width: 32.17%;">
-                          4.83
+                          7.24
                         </div>
                       </div>
                     </td>
@@ -881,7 +880,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>BLIP2</td>
+                    <td>BLIP-2</td>
                     <td>
                       <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="4.62" aria-valuemin="0" aria-valuemax="40" style="width: 10.27%;">
@@ -912,7 +911,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>MiniGPT4</td>
+                    <td>MiniGPT-4</td>
                     <td>
                       <div class="progress">
                         <div class="progress-bar overflow-visible text-dark" role="progressbar" aria-valuenow="2.54" aria-valuemin="0" aria-valuemax="40" style="width: 5.65%;">
@@ -943,11 +942,11 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>miniGemnini-7B</td>
+                    <td>miniGemnini(7B)</td>
                     <td>
                       <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="21.23" aria-valuemin="0" aria-valuemax="40" style="width: 47.37%;">
-                          21.23
+                        <div class="progress-bar" role="progressbar" aria-valuenow="21.32" aria-valuemin="0" aria-valuemax="40" style="width: 47.37%;">
+                          21.32
                         </div>
                       </div>
                     </td>
@@ -974,25 +973,25 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Emu2-37B</td>
+                    <td>Emu2(37B)</td>
                     <td>
                       <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="49.53" aria-valuemin="0" aria-valuemax="40" style="width: 86.95%;">
-                          49.53
+                        <div class="progress-bar" role="progressbar" aria-valuenow="39.13" aria-valuemin="0" aria-valuemax="40" style="width: 86.95%;">
+                          39.13
                         </div>
                       </div>
                     </td>
                     <td>
                       <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="12.79" aria-valuemin="0" aria-valuemax="15" style="width: 76.69%;">
-                          12.79
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.54" aria-valuemin="0" aria-valuemax="15" style="width: 76.69%;">
+                          11.54
                         </div>
                       </div>
                     </td>
                     <td>
                       <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="12.09" aria-valuemin="0" aria-valuemax="15" style="width: 75.20%;">
-                          12.09
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.28" aria-valuemin="0" aria-valuemax="15" style="width: 75.20%;">
+                          11.28
                         </div>
                       </div>
                     </td>
@@ -1005,11 +1004,11 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>SEED-LLaMA-14B-SFT</td>
+                    <td>SEED-LLaMA(14B-SFT)</td>
                     <td>
                       <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="12.24" aria-valuemin="0" aria-valuemax="40" style="width: 26.21%;">
-                          12.24
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.80" aria-valuemin="0" aria-valuemax="40" style="width: 26.21%;">
+                          11.80
                         </div>
                       </div>
                     </td>
@@ -1036,11 +1035,11 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>InternLM-XComposer2-7B</td>
+                    <td>InternLM-XComposer2(7B)</td>
                     <td>
                       <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="11.86" aria-valuemin="0" aria-valuemax="40" style="width: 25.19%;">
-                          11.86
+                        <div class="progress-bar" role="progressbar" aria-valuenow="11.33" aria-valuemin="0" aria-valuemax="40" style="width: 25.19%;">
+                          11.33
                         </div>
                       </div>
                     </td>
@@ -1163,15 +1162,8 @@
                     <td>GlaMM</td>
                     <td>
                       <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="9.11" aria-valuemin="0" aria-valuemax="40" style="width: 15.54%;">
-                          9.11
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="6.06" aria-valuemin="0" aria-valuemax="15" style="width: 10.33%;">
-                          <div class="progress-text-0">6.06</div>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="6.99" aria-valuemin="0" aria-valuemax="40" style="width: 15.54%;">
+                          6.99
                         </div>
                       </div>
                     </td>
@@ -1186,154 +1178,6 @@
                       <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
                           <div class="progress-text-0">0</div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-               <tr>
-                    <td>OMG-LLaVA-InternLM-20B</td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="11.74" aria-valuemin="0" aria-valuemax="40" style="width: 20.03%;">
-                          11.74
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="6.06" aria-valuemin="0" aria-valuemax="15" style="width: 14.28%;">
-                          <div class="progress-text-0">8.37</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
-                          <div class="progress-text-0">0</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
-                          <div class="progress-text-0">0</div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-              <tr>
-                    <td>AnyGPT</td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="11.74" aria-valuemin="0" aria-valuemax="40" style="width: 20.03%;">
-                          27.42
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="6.06" aria-valuemin="0" aria-valuemax="15" style="width: 14.28%;">
-                          <div class="progress-text-0">7.79</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
-                          <div class="progress-text-0">0</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
-                          <div class="progress-text-0">0</div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                            <tr>
-                    <td>NextGPT</td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="11.74" aria-valuemin="0" aria-valuemax="40" style="width: 20.03%;">
-                          27.20
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="6.06" aria-valuemin="0" aria-valuemax="15" style="width: 14.28%;">
-                          <div class="progress-text-0">11.09</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 14%;">
-                          <div class="progress-text-0">7.6</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
-                          <div class="progress-text-0">0</div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                            <tr>
-                    <td>Vitron</td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="11.74" aria-valuemin="0" aria-valuemax="40" style="width: 20.03%;">
-                          45.34
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="6.06" aria-valuemin="0" aria-valuemax="15" style="width: 14.28%;">
-                          <div class="progress-text-0">16.84</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 14%;">
-                          <div class="progress-text-0">14.33</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 0%;">
-                          <div class="progress-text-0">0</div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                            <tr>
-                    <td>LaVIT-V2-7B</td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="11.74" aria-valuemin="0" aria-valuemax="40" style="width: 20.03%;">
-                          27.47
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="6.06" aria-valuemin="0" aria-valuemax="15" style="width: 14.28%;">
-                          <div class="progress-text-0">8.99</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="15" style="width: 14%;">
-                          <div class="progress-text-0">8.04</div>
                         </div>
                       </div>
                     </td>
@@ -1347,15 +1191,27 @@
                   </tr>
               </tbody>
             </table>
-          </div>
-          <p style="text-align: left;margin-top: 30px;color: red;">
+          </div> -->
+          
+
+          <!-- <p style="text-align: left;margin-top: 30px;color: red;">
             The visualization of the above Generalist Levels will subsequently be styled as follows &darr;
           </p>
           <br>
-          <img src="static/images/demo-vis.png" alt="pipeline" class="center" style="width: 100%;">
+          <img src="static/images/demo-vis.png" alt="pipeline" class="center" style="width: 100%;"> -->
+          <div class="content has-text-justified">
+            <p>
+              We selected existing popular MLLMs for evaluation on benchmarks and scored them according to the defined rules for levels. Below are the Generalist Levels for MLLMs.
+            </p>
+            <div id="leaderboard_scatterplot" style="width: 100%; height: 1100px;"></div>
+          </div>
         </div>
+      </div>
+    </div>
 
-
+    <!-- Multimodal Tasks -->
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
         <h2 class="title is-3" >Multimodal Tasks</h2>
         <div class="content">
           <div class="content has-text-justified">
@@ -1380,9 +1236,6 @@
             }
           </style>
           <div class="model-labels-container">
-            <!-- <span class="leaderboard-label" style="background-color: #f8fffe;">Open-Source</span>
-            <span class="leaderboard-label" style="background-color: #f9f2f8;">Closed</span> -->
-            
             <button class="task-button" style="background-color: #ddffec;"><span style="color:#04B153; font-weight:bold;">C</span>omprehension Tasks</button>
             <button class="task-button" style="background-color: #d2f2fd;"> <span style="color:#05B1F0; font-weight:bold;">G</span>eneration Tasks</button>
             <button class="task-button" style="background-color: #ffecec;">N<span style="color:#cc1a1a; font-weight:bold;">L</span>P Tasks</button>
@@ -1472,29 +1325,25 @@
                       <th>SoTA Specialist</th>
                       <th>Metrics</th>
                       <th>SoTA Score</th>
-                      <th class="mllm">GPT4v</th>
-                      <th class="mllm">GPT4o</th>
-                      <th class="mllm">LLaVA1.5-7B</th>
-                      <th class="mllm">miniGemnini-7B</th>
-                      <th class="mllm">QwenVL-Plus</th>
+                      <th class="mllm">GPT-4V</th>
+                      <th class="mllm">GPT-4o</th>
+                      <th class="mllm">LLaVA 1.5(7B)</th>
+                      <th class="mllm">miniGemnini(7B)</th>
+                      <th class="mllm">Qwen-VL-Plus</th>
                       <th class="mllm">InternVL</th>
-                      <th class="mllm">MoE-LLaVA-1.8B-4e</th>
-                      <th class="mllm">YiVL-6B</th>
-                      <th class="mllm">BLIP2</th>
-                      <th class="mllm">Emu2-37B</th>
-                      <th class="mllm">SEED-LLaMA-14B-SFT</th>
-                      <th class="mllm">InternLM-XComposer2-7B</th>
-                      <th class="mllm">LaVIT-V2-7B</th>
+                      <th class="mllm">MoE-LLaVA-QWen-1.8B-4e</th>
+                      <th class="mllm">Yi-VL(6B)</th>
+                      <th class="mllm">BLIP-2</th>
+                      <th class="mllm">Emu2(37B)</th>
+                      <th class="mllm">SEED-LLaMA(14B-sft)</th>
+                      <th class="mllm">InternLM-XComposer2(7B)</th>
+                      <th class="mllm">LaVIT-v2(7B)</th>
                       <th class="mllm">GPT4ROI</th>
                       <th class="mllm">Ospery</th>
                       <th class="mllm">NextChat</th>
                       <th class="mllm">GlaMM</th>
-                      <th class="mllm">OMG-LLaVA-InternLM-20B</th>
+                      <th class="mllm">OMG-LLaVA-InternLM(20B)</th>
                       <th class="mllm">AnyGPT</th>
-                      <th class="mllm">NextGPT</th>
-                      <th class="mllm">Vitron</th>
-                      <th class="mllm">miniGPT-4</th>
-
                   </tr>
               </thead>
               <tbody>
@@ -1517,9 +1366,6 @@
                       <td>44.20</td>
                       <td>34.20</td>
                       <td>27.00</td>
-                      <td>0</td>
-                      <td>0</td>
-                      <td>0</td>
                       <td>0</td>
                       <td>0</td>
                       <td>0</td>
@@ -1552,9 +1398,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                      <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
                     
                     <!-- <td>row</td> -->
                   </tr>
@@ -1566,7 +1409,7 @@
                     <td>94.79</td>
                     <td>73.01</td>
                     <td>73.21</td>
-                    <td>84.18</td>
+                    <td>84.17</td>
                     <td>79.39</td>
                     <td>91.01</td>
                     <td>86.10</td>
@@ -1575,7 +1418,7 @@
                     <td>74.50</td>
                     <td>90.44</td>
                     <td>37.27</td>
-                    <td>54.79</td>
+                    <td>54.78</td>
                     <td>64.67</td>
                     <td>8.54</td>
                     <td>62.17</td>
@@ -1583,9 +1426,6 @@
                     <td>1.00</td>
                     <td>47.80</td>
                     <td>51.22</td>
-                      <td>49.32</td>
-                      <td>65.85</td>
-                      <td>15.74</td>
 
                     
                   </tr>
@@ -1606,7 +1446,7 @@
                     <td>17.30</td>
                     <td>40.00</td>
                     <td>21.00</td>
-                    <td>54.67</td>
+                    <td>54.66</td>
                     <td>33.67</td>
                     <td>12.33</td>
                     <td>12.67</td>
@@ -1614,9 +1454,6 @@
                     <td>43.60</td>
                     <td>6.00</td>
                     <td>37.62</td>
-                      <td>46.33</td>
-                      <td>57.80</td>
-                      <td>26.66</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
@@ -1642,9 +1479,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                      <td>0</td>
                     <td>0</td>
                     <td>0</td>
 
@@ -1675,10 +1509,6 @@
                     <td>56.30</td>
                     <td>23.20</td>
                     <td>23.75</td>
-                    <td>46.55</td>
-                      <td>50.32</td>
-                      <td>23.79</td>
-
 
                     
                   </tr>
@@ -1705,9 +1535,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                      <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     
@@ -1737,9 +1564,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                      <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
@@ -1747,7 +1571,7 @@
                     <td class="sticky-column-2 comprehension" ><a href="https://github.com/liruilong940607/OCHumanApi"> OCHuman</a></td>
                     <td>BUCTD</td>
                     <td rowspan="2" style="vertical-align: middle;">AP</td>
-                    <td>43.90</td>
+                    <td>43.9</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -1765,9 +1589,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                      <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     
@@ -1796,9 +1617,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                      <td>0</td>
-                    <td>35.60</td>
-                    <td>0</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
@@ -1806,15 +1624,15 @@
                     <td class="sticky-column-2 comprehension" ><a href="https://github.com/lichengunc/refer"> RefCOCO</a></td>
                     <td rowspan="3" style="text-align: center; vertical-align: middle;">polygon-former</td>
                     <td rowspan="3" style="text-align: center; vertical-align: middle;">AP@0.1</td>
-                    <td>90.91</td>
+                    <td>90.9</td>
                     <td>0</td>
-                    <td>87.67</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>18.33</td>
+                    <td>31.00</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>29.00</td>
+                    <td>9.33</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>11.67</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -1823,12 +1641,9 @@
                     <td>0</td>
                     <td>0</td>
                     <td>39.33</td>
-                    <td>97.00</td>
+                    <td>66.60</td>
                     <td>96.00</td>
                     <td>0</td>
-                      <td>0</td>
-                      <td>56.45</td>
-                      <td>0</td>
 
                   </tr>
                   <tr class="leaderboard-content">
@@ -1836,13 +1651,13 @@
                     <td class="sticky-column-2 comprehension" ><a href="https://github.com/lichengunc/refer"> RefCOCO+</a></td>
                     <td>85.97</td>
                     <td>0</td>
-                    <td>50.30</td>
+                    <td>18.00</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>13.33</td>
+                    <td>7.00</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>25.33</td>
+                    <td>7.67</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -1851,12 +1666,9 @@
                     <td>0</td>
                     <td>0</td>
                     <td>31.33</td>
-                    <td>92.70</td>
+                    <td>63.00</td>
                     <td>89.00</td>
                     <td>0</td>
-                      <td>0</td>
-                      <td>67.41</td>
-                      <td>0</td>
 
                   </tr>
                   <tr class="leaderboard-content">
@@ -1882,9 +1694,6 @@
                     <td>55.70</td>
                     <td>86.70</td>
                     <td>0</td>
-                      <td>0</td>
-                      <td>63.85</td>
-                      <td>0</td>
                     
                     <!-- <td>row</td> -->
                   </tr>
@@ -1893,7 +1702,7 @@
                     <td class="sticky-column-2 comprehension" ><a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/"> PASCAL VOC 2012</a></td>
                     <td>SegCLIP</td>
                     <td>mIoU</td>
-                    <td>51.80</td>
+                    <td>51.8</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -1913,9 +1722,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                      <td>0</td>
-                      <td>35.14</td>
-                      <td>0</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
@@ -1943,9 +1749,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                      <td>0</td>
-                    <td>23.45</td>
-                    <td>0</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
@@ -1970,9 +1773,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>0</td>
-                      <td>0</td>
-                    <td>17.89</td>
                     <td>0</td>
                     
                     <!-- <td>row</td> -->
@@ -2001,9 +1801,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                      <td>0</td>
-                    <td>29.78</td>
-                    <td>0</td>
                     
                     <!-- <td>row</td> -->
                   </tr>
@@ -2030,9 +1827,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                      <td>0</td>
-                    <td>20.61</td>
-                    <td>0</td>
                     
                     <!-- <td>row</td> -->
                   </tr>
@@ -2041,7 +1835,7 @@
                     <td class="sticky-column-2 comprehension" ><a href="https://www.mvtec.com/company/research/datasets/mvtec-ad"> MVTecAD</a></td>
                     <td>DMAD</td>
                     <td>AUC</td>
-                    <td>97.50</td>
+                    <td>97.5</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -2059,9 +1853,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                      <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     
@@ -2091,16 +1882,13 @@
                     <td>0</td>
                     <td>57.70</td>
                     <td>43.95</td>
-                      <td>56.58</td>
-                      <td>68.40</td>
-                      <td>33.66</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
                     <!-- <td>VQA</td> -->
                     <td class="sticky-column-2 comprehension" ><a href="https://visualqa.org/"> VQAv2</a></td>
                     <td>70.67</td>
-                    <td>24.70</td>
+                    <td>24.7</td>
                     <td>53.67</td>
                     <td>77.33</td>
                     <td>77.33</td>
@@ -2111,7 +1899,7 @@
                     <td>22.33</td>
                     <td>78.33</td>
                     <td>61.62</td>
-                    <td>36.03</td>
+                    <td>36.02</td>
                     <td>68.30</td>
                     <td>0</td>
                     <td>68.33</td>
@@ -2119,9 +1907,6 @@
                     <td>13.70</td>
                     <td>67.30</td>
                     <td>63.74</td>
-                      <td>67.60</td>
-                      <td>75.60</td>
-                      <td>13.33</td>
                     <!-- <td>row</td> -->
                   </tr>
                   <tr class="leaderboard-content">
@@ -2147,9 +1932,6 @@
                     <td>0</td>
                     <td>18.30</td>
                     <td>11.22</td>
-                      <td>20.33</td>
-                      <td>50.40</td>
-                      <td>3.66</td>
                     
                     <!-- <td>row</td> -->
                   </tr>
@@ -2176,9 +1958,6 @@
                     <td>14.30</td>
                     <td>45.70</td>
                     <td>28.03</td>
-                      <td>40.30</td>
-                      <td>52.03</td>
-                      <td>0.90</td>
                     
                     <!-- <td>row</td> -->
                   </tr>
@@ -2207,9 +1986,6 @@
                     <td>14.50</td>
                     <td>14.00</td>
                     <td>17.56</td>
-                      <td>36.66</td>
-                      <td>25.80</td>
-                      <td>1.66</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
@@ -2217,7 +1993,7 @@
                     <td class="sticky-column-2 generation" ><a href="https://github.com/IIGROUP/MM-CelebA-HQ-Dataset">MultiModal CeleA-HQ</a></td>
                     <td>Lafite</td>
                     <td rowspan="8" style="text-align: center; vertical-align: middle;">FID</td>
-                    <td>149.86</td>
+                    <td>149.861</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -2230,16 +2006,13 @@
                     <td>112.33</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>127.40</td>
+                    <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>141.64</td>
-                      <td>123.30</td>
-                      <td>130.60</td>
-                      <td>0</td>
                     
                     
                   </tr>
@@ -2247,7 +2020,7 @@
                     <!-- <td>Text-to-Image</td> -->
                     <td class="sticky-column-2 generation" ><a href="https://www.image-net.org/">Imagenet</a></td>
                     <td>VQ-diffusion</td>
-                    <td>126.69</td>
+                    <td>126.694</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -2260,23 +2033,20 @@
                     <td>224.63</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>157.20</td>
+                    <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>227.83</td>
-                      <td>163.88</td>
-                      <td>143.05</td>
-                      <td>0</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
                     <!-- <td>Text-to-Image</td> -->
                     <td class="sticky-column-2 generation" ><a href="https://cocodataset.org/#home"> MSCOCO</a></td>
                     <td rowspan="2" style="text-align: center; vertical-align: middle;">Lafite</td>
-                    <td>280.92</td>
+                    <td>280.924</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -2289,23 +2059,20 @@
                     <td>146.89</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>142.20</td>
+                    <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>126.84</td>
-                      <td>198.01</td>
-                      <td>169.30</td>
-                      <td>0</td>
 
                     
                   </tr>
                   <tr class="leaderboard-content">
                     <!-- <td>Text-to-Image</td> -->
                     <td class="sticky-column-2 generation" ><a href="https://www.vision.caltech.edu/datasets/cub_200_2011/">CUB</a></td>
-                    <td>121.54</td>
+                    <td>121.544</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -2315,19 +2082,16 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>71.33</td>
+                    <td>71.32</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>75.70</td>
+                    <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>74.67</td>
-                      <td>82.30</td>
-                    <td>100.72</td>
-                    <td>0</td>
 
                     
                     <!-- <td>Lafite</td> -->
@@ -2336,7 +2100,7 @@
                     <td class="sticky-column-1 generation"  rowspan="2" style="vertical-align: middle;">Sketch-to-Image</td>
                     <td class="sticky-column-2 generation" ><a href="https://arxiv.org/pdf/1909.11081v2">Scribble</a></td>
                     <td rowspan="2" style="text-align: center; vertical-align: middle;">PITI</td>
-                    <td>312.13</td>
+                    <td>312.12</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -2349,23 +2113,20 @@
                     <td>406.01</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>423.40</td>
+                    <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>357.91</td>
-                      <td>505.66</td>
-                      <td>324.25</td>
-                      <td>0</td>
 
                     
                   </tr>
                   <tr class="leaderboard-content">
                     <!-- <td>Setch-to-Image</td> -->
                     <td class="sticky-column-2 generation" ><a href="https://github.com/sysu-imsl/SketchyCOCO">SketchyCOCO</a></td>
-                    <td>274.40</td>
+                    <td>274.39</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -2375,19 +2136,16 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>171.88</td>
+                    <td>171.87</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>186.10</td>
+                    <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>171.91</td>
-                      <td>326.40</td>
-                      <td>208.35</td>
-                      <td>0</td>
                     
                     <!-- <td>row</td> -->
                   </tr>
@@ -2405,25 +2163,22 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>269.26</td>
+                    <td>269.25</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>238.90</td>
+                    <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>141.35</td>
-                      <td>350.30</td>
-                    <td>231.17</td>
-                    <td>0</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
                     <!-- <td>Layout-to-Image</td> -->
                     <td class="sticky-column-2 generation" ><a href="https://homes.cs.washington.edu/~ranjay/visualgenome/index.html">Visual Genome</a></td>
-                    <td>131.80</td>
+                    <td>131.79</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -2436,16 +2191,14 @@
                     <td>381.31</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>271.40</td>
+                    <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>171.70</td>
-                      <td>410.10</td>
-                    <td>269.02</td>
-                    <td>0</td>
+                    
                     <!-- <td>HAT</td> -->
                   </tr>
                   <tr class="leaderboard-content">
@@ -2473,9 +2226,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                      <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
@@ -2501,9 +2251,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                      <td>0</td>
-                      <td>0</td>
-                      <td>0</td>
                     
                     <!-- <td>row</td> -->
                   </tr>
@@ -2528,9 +2275,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                      <td>0</td>
                     <td>0</td>
                     <td>0</td>
 
@@ -2560,9 +2304,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                      <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
                     
                     <!-- <td>row</td> -->
                   </tr>
@@ -2584,16 +2325,13 @@
                     <td>111.67</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>121.40</td>
+                    <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>93.12</td>
-                      <td>153.06</td>
-                    <td>123.56</td>
-                    <td>0</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
@@ -2609,19 +2347,16 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>47.87</td>
+                    <td>47.86</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>67.30</td>
+                    <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>81.65</td>
-                      <td>76.33</td>
-                    <td>64.02</td>
-                    <td>0</td>
 
                     
                     <!-- <td>row</td> -->
@@ -2642,16 +2377,13 @@
                     <td>64.49</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>57.10</td>
+                    <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     <td>107.05</td>
-                      <td>88.41</td>
-                    <td>34.80</td>
-                    <td>0</td>
 
                     
                     <!-- <td>row</td> -->
@@ -2681,9 +2413,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                      <td>0</td>
-                    <td>36.74</td>
-                    <td>0</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
@@ -2711,9 +2440,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                      <td>0</td>
-                    <td>65.33</td>
-                    <td>0</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
@@ -2740,9 +2466,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                      <td>0</td>
-                    <td>186.07</td>
-                    <td>0</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
@@ -2758,7 +2481,7 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>226.02</td>
+                    <td>226.01</td>
                     <td>181.96</td>
                     <td>0</td>
                     <td>0</td>
@@ -2767,9 +2490,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>0</td>
-                      <td>0</td>
-                    <td>175.33</td>
                     <td>0</td>
                     
                     <!-- <td>WaveNet</td> -->
@@ -2799,9 +2519,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>28.33</td>
-                      <td>0</td>
-                    <td>34.86</td>
-                    <td>0</td>
                     
                   </tr>
                   <tr class="leaderboard-content">
@@ -2826,9 +2543,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                      <td>0</td>
                     <td>0</td>
                     <td>0</td>
                     
@@ -2857,9 +2571,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>27.91</td>
-                      <td>56.31</td>
-                    <td>40.66</td>
-                    <td>0</td>
 
                     
                   </tr>
@@ -2886,9 +2597,6 @@
                     <td>0</td>
                     <td>0</td>
                     <td>27.88</td>
-                      <td>51.03</td>
-                    <td>38.27</td>
-                    <td>0</td>
                     <!-- <td>row</td> -->
                   </tr>
                   <tr class="leaderboard-content">
@@ -3031,8 +2739,7 @@
     </div>
 
 
-
-
+    <!-- Submit your MLLM! -->
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
         <h2 class="title is-3">Submit your MLLM!</h2>
@@ -3066,8 +2773,714 @@
 
   </div>
 </section>
+<!-- Leaderboard -->
+
+<style>
+  /* css animations adapted from https://dev.to/5t3ph/how-to-create-an-animated-svg-face-with-css-5djd */
+  svg {
+    overflow: visible;
+  }
+
+  .wink > .left-eye, .wink > .right-eye {
+    transform: scale(1);
+    transform-origin: 45% 45%;
+    animation: wink 250ms ease-in-out 1;
+  }
+  .blink > .left-eye, .blink > .right-eye {
+    transform: scale(1);
+    animation: wink 250ms ease-in-out 1;
+  }
+  .eye .white {
+    fill: white;
+  }
+
+  .eyebrow {
+    stroke-linecap: round;
+    /*display: none;*/
+  }
+  @keyframes wink {
+    50% {
+      transform: scale(1.2, 0.1);
+    }
+    0%, 100% {
+      transform: scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      -webkit-animation-duration: 0.01ms !important;
+              animation-duration: 0.01ms !important;
+      -webkit-animation-iteration-count: 1 !important;
+              animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+
+<script>
+  function getRandomInt(min, max) {
+    // min = Math.ceil(min+0.3);
+    // max = Math.floor(max-0.3);
+    // return Math.floor(Math.random() * (max - min + 1)) + min;
+    min = min + 0.5;
+    max = max - 0.5;
+    let randomFloat = (Math.random() * (max - min) + min).toFixed(1);
+    return parseFloat(randomFloat);
+  }
+
+  const Generalist_levels_data = [
+    {
+      name: "LLaVA 1.5 (7b)",
+      icon_path: "xxx",
+      level_1: 9.02,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 4.77,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "GPT-4v",
+      icon_path: "xxx",
+      level_1: 8.04,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 2.62,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "GPT-4o",
+      icon_path: "xxx",
+      level_1: 13.78,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 3.86,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "Qwen-VL-Plus",
+      icon_path: "xxx",
+      level_1: 11.54,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 6.90,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "InternVL",
+      icon_path: "xxx",
+      level_1: 11.65,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 7.24,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "MoE-LLaVA-Qwen-1.8B-4e",
+      icon_path: "xxx",
+      level_1: 7.15,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 2.89,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "Yi-VL",
+      icon_path: "xxx",
+      level_1: 11.55,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 4.83,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "BLIP2",
+      icon_path: "xxx",
+      level_1: 4.62,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 0.00,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "MiniGPT-4",
+      icon_path: "xxx",
+      level_1: 2.54,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 0.0,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "miniGemini-7B",
+      icon_path: "xxx",
+      level_1: 21.23,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 11.12,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 11.04,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "Emu2(37B)",
+      icon_path: "2.54",
+      level_1: 49.53,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 12.79,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 12.09,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "SEED-LLaMA",
+      icon_path: "2.54",
+      level_1: 12.24,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 3.39,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "InternLM-XComposer2",
+      icon_path: "2.54",
+      level_1: 11.86,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 4.78,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "GPT4ROI",
+      icon_path: "2.54",
+      level_1: 1.46,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 0.01,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "Osprey",
+      icon_path: "2.54",
+      level_1: 6.81,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 2.18,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "NextChat",
+      icon_path: "2.54",
+      level_1: 7.65,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 0.00,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "GlaMM",
+      icon_path: "2.54",
+      level_1: 9.11,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 6.06,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "OMG-LLaVA-InternLM",
+      icon_path: "2.54",
+      level_1: 11.74,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 8.37,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "AnyGPT",
+      icon_path: "27.42",
+      level_1: 11.74,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 7.79,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 0.00,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "NeXT-GPT",
+      icon_path: "2.54",
+      level_1: 27.02,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 11.09,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 7.6,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "Vitron",
+      icon_path: "2.54",
+      level_1: 45.34,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 16.84,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 14.33,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    },
+    {
+      name: "LaVIT-V2",
+      icon_path: "2.54",
+      level_1: 27.47,
+      level_1_x: getRandomInt(0, 4),
+      level_2: 8.99,
+      level_2_x: getRandomInt(4, 8),
+      level_3: 8.04,
+      level_3_x: getRandomInt(8, 12),
+      level_4: 0.00,
+      level_4_x: getRandomInt(12, 16),
+    }
+    
+  ]
+  const level_labels = ["Level-2", "Level-3", "Level-4", "Level-5"];
+  function level_mapping (value){
+    mapping = {2: 0, 6: 1, 10: 2, 14: 3}
+    return mapping[value]
+  }
 
 
+  const marginTop = 80,
+    marginRight = 30,
+    marginBottom = 30,
+    marginLeft = 30;
+
+  const svg_width = 1000,
+    svg_height = 900;
+  /**
+   *
+   * 创建容器
+   *
+   */
+  // const svg = d3.select("#leaderboard_scatterplot").append("svg").attr("width", 1000).attr("height", 800);
+
+  function face(color, duration = 5) {
+    return svg`
+  <ellipse cx="50" cy="30" rx="50" ry="50" class="eye right-eye" fill="white" stroke="${color}" stroke-width="4" />
+  <ellipse cx="25" cy="15" rx="8" ry="10" class="eye right-eye" fill="${color}">
+        <animate
+      attributeName="ry"
+      begin="0s"
+      dur="${duration}s"
+      values="10;10;1;10"
+      keySplines="
+        0.1 0.8 0.2 1;
+        0.1 0.8 0.2 1;
+        0.1 0.8 0.2 1"
+      keyTimes="
+        0;0.8;0.9;1"
+      calcMode="spline"
+      repeatCount="indefinite"
+    />
+      <animate
+      attributeName="rx"
+      begin="0s"
+      dur="${duration}s"
+      values="8;8;12;8"
+      keySplines="
+        0.1 0.8 0.2 1;
+        0.1 0.8 0.2 1;
+        0.1 0.8 0.2 1"
+      keyTimes="
+        0;0.8;0.9;1"
+      calcMode="spline"
+      repeatCount="indefinite"
+    />
+    </ellipse>
+    <ellipse cx="75" cy="15" rx="8" ry="10" class="eye left-eye" fill="${color}">
+            <animate
+      attributeName="ry"
+      begin="0s"
+      dur="${duration}s"
+      values="10;10;1;10"
+      keySplines="
+        0.1 0.8 0.2 1;
+        0.1 0.8 0.2 1;
+        0.1 0.8 0.2 1"
+      keyTimes="
+        0;0.8;0.9;1"
+      calcMode="spline"
+      repeatCount="indefinite"
+    />
+      <animate
+      attributeName="rx"
+      begin="0s"
+      dur="${duration}s"
+      values="8;8;12;8"
+      keySplines="
+        0.1 0.8 0.2 1;
+        0.1 0.8 0.2 1;
+        0.1 0.8 0.2 1"
+      keyTimes="
+        0;0.8;0.9;1"
+      calcMode="spline"
+      repeatCount="indefinite"
+    />
+    </ellipse>
+    <path 
+      d="M30 40 c0 20, 40 20, 40 0" 
+      fill="${color}" stroke="${color}" />`;
+  }
+
+  // Create the SVG container.
+  const svg = d3.select("#leaderboard_scatterplot").append("svg").attr("viewBox", [0, 0, svg_width, svg_height]);
+
+  function rTemp(value, max_r=50, min_r=10){
+    // adjust the radius of face based on the value, and setting a minimal radius
+    if (value == 0){
+      return 0
+    }
+    else{
+      return Math.max((value/45)*max_r, min_r)
+    }
+    // return Math.max((value/45)*max_r, min_r)
+  }
+
+  function blinkFace(data, {
+    x = ([x]) => x, // 从原始数据 data 中读取出各数据点的标注信息的函数，该函数的入参是各个数据点 d（如果原始数据点结构是 [x, y] 可以使用这里的默认值 ([x]) => x 即通过解构获取 x 值）
+    y = ([, y]) => y,
+    // x_1 = ([x]) => x_1, 
+    // y_1 = ([, y]) => y_1,
+    r = 20, // 数据点的大小半径
+    title, // 从原始数据 data 中读取出各数据点的标注信息的函数，该函数的入参是各个数据点 d
+    // 以下有一些关于图形的宽高、边距尺寸相关的参数
+    marginTop = 20, // top margin, in pixels
+    marginRight = 30, // right margin, in pixels
+    marginBottom = 30, // bottom margin, in pixels
+    marginLeft = 40, // left margin, in pixels
+    inset = 6, // inset the default range, in pixels
+    insetTop = inset, // inset the default y-range
+    insetRight = inset, // inset the default x-range
+    insetBottom = inset, // inset the default y-range
+    insetLeft = inset, // inset the default x-range
+    width = 640, // svg 的宽度
+    height = 400,
+    xType = d3.scaleLinear, // 横坐标轴所使用的比例尺类型
+    xDomain, // 横坐标轴的定义域范围 [xmin, xmax] （以下）默认从原始数据中计算得出
+    xRange = [marginLeft + insetLeft, width - marginRight - insetRight], // 横坐标轴的值域（可视化属性，这里是长度）范围 [left, right] 从左至右，和我们日常使用一致
+    yType = d3.scaleLinear,
+    yDomain, // [ymin, ymax]
+    yRange = [height - marginBottom - insetBottom, marginTop + insetTop], // 纵坐标轴的值域（可视化属性，这里是长度）范围 [bottom, top] 由于 svg 的坐标体系中向下和向右是正方向，和我们日常使用的不一致，所以这里的值域范围需要采用从下往上与定义域进行映射
+    xLabel, // 为横坐标轴添加额外信息名称（一般是刻度值的单位等信息）
+    yLabel,
+    xFormat, // 格式化数字的说明符 specifier 用于格式化横坐标轴的刻度值
+    yFormat,
+    fill = "none", // 数据点的填充颜色
+    stroke = "currentColor", // 数据点的描边颜色
+    strokeWidth = 1.5, // 数据点的描边宽度
+    halo = "#fff", // 数据点的标注信息的文字描边颜色
+    haloWidth = 3 // 数据点的标注信息的文字描边宽度
+  }={}) {
+    // seems like inter-blink time distribution is... lognormal! https://pubmed.ncbi.nlm.nih.gov/20944934/
+    const rn = d3.randomLogNormal(2, 1);
+    const wait = (d) => rn() * 1000;
+
+    // const r = 30;
+    // 从原始数据 data（一般是一个数组，也可以是其他类型，只要是可迭代对象即可）中读取出用于绘制散点图的横坐标所需的数据
+    // 参数 x 是映射函数 mapper，它会被可迭代对象 data 的每一个元素依次调用，而映射函数会返回一个值，作为各个元素的相应「替代」值，和 JavaScript 的数组原生方法 arr.map() 类似。
+    // 参数 x 的默认值是 ([x]) => x
+    // 这里假设原始数据是一个嵌套数组，例如 [[1,2], [11, 3], ...] 其元素是一个二维数组 [a, b] 其中第一个值就是用作散点图的横坐标，所以默认的 mapper 函数 ([x]) => x 就是通过解构读取第一个值
+    console.log(data);
+
+
+    const X = d3.map(data, x).flat();
+    console.log(X)
+    // 从原始数据 data 中读取出用于绘制散点图的纵坐标所需的数据
+    const Y = d3.map(data, y).flat();
+    console.log(Y)
+    // 从原始数据 data 中读取出各数据点的标注信息
+    const T = title == null ? null : d3.map(data, title).flat();
+    const I = d3.range(X.length).filter(i => !isNaN(X[i]) && !isNaN(Y[i]));
+
+    /**
+     *
+     * 计算数据集的范围，作为坐标轴的定义域
+     *
+     */
+    // 参数 X 和 Y 是一个可迭代对象，该方法获取可迭代对象的范围，返回一个由最小值和最大值构成的数组 [min, max]
+    if (xDomain === undefined) xDomain = d3.extent(X);
+    if (yDomain === undefined) yDomain = d3.extent(Y);
+
+    /**
+     *
+     * 构建比例尺和坐标轴
+     *
+     */
+    const xScale = xType(xDomain, xRange); // 横轴所使用的比例尺
+    const yScale = yType(yDomain, yRange); // 纵轴所使用的比例尺
+    
+    console.log(xScale, yScale)
+
+    const xAxis = d3.axisTop(xScale).ticks(width / 80, xFormat);
+    // const yAxis = d3.axisLeft(yScale).ticks(height / 100, yFormat);
+    const yAxis = d3.axisLeft(yScale).tickFormat(function(d, i) {
+      // Check if the value is odd
+      return d % 4 == 0 ? "" : level_labels[level_mapping(d)];
+    });
+    
+    /**
+     *
+     * 绘制坐标轴
+     *
+     */
+    svg.append("g")
+    .attr("transform", `translate(0, ${marginTop+5})`) // 将横坐标轴容器定位到底部
+    .call(xAxis) // 调用坐标轴（对象）方法，将坐标轴在相应容器内部渲染出来。以下的代码是对坐标轴进行一些定制化的调整
+    .call(g => g.select(".domain").remove()) // 删掉上一步所生成的坐标轴的轴线（它含有 domain 类名）
+    .call(g => g.selectAll(".tick line").clone() // 这里复制了一份刻度线，用以绘制散点图中纵向的网格参考线
+      .attr("y2", height-marginBottom-marginTop-10) // 调整复制后的刻度线的终点位置（往上移动）
+      .attr("stroke-opacity", 0.1)) // 调小网格线的透明度
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+    .call(g => g.append("text") // 为坐标轴添加额外信息名称（一般是刻度值的单位等信息）
+      .attr("x", width)
+      .attr("y", marginTop) // 添加的额外文字定位到坐标轴的顶部
+      // .attr("font-family", "sans-serif")
+      .attr("font-size", 13)
+      .attr("fill", "currentColor")
+      .attr("text-anchor", "end") // 设置文本的对齐方式
+      .text(xLabel)); // 这是封装函数传入的参数
+    
+    
+
+    // 绘制纵坐标轴
+    svg.append("g")
+      .attr("transform", `translate(${marginLeft}, 0)`) // 这里将纵坐标容器稍微往左移动一点，让坐标轴绘制在预先留出的 margin 区域中
+      .call(yAxis)
+      // .call(d3.axisLeft(yScale).tickFormat(function(d) {
+      //     return d % 2 == 0 ? "" : d;}))
+      .call(g => g.select(".domain").remove())
+      // .call(g => g.selectAll(".tick line").clone()
+      .call(g => g.selectAll(".tick").filter((d, i) => i % 2 === 0).selectAll("line").clone() // filter to only even ticks
+        .attr("x2", width - marginLeft - marginRight)
+        .attr("stroke-opacity", 0.5))
+        // .attr("font-family", "sans-serif")
+        // .attr("font-size", 12)
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 13)
+      .call(g => g.selectAll(".tick text")
+        .attr("transform", "rotate(-90)") // 旋转90度
+        .attr("x", -20) // 调整位置
+        .attr("dy", -14) // 调整位置
+        .style("text-anchor", "start")) // 调整文字对齐方式
+      // .call(g => g.append("text")
+      //   .attr("x", -marginLeft)
+      //   .attr("y", 10)
+      //   // .attr("font-family", "sans-serif")
+      //   .attr("font-size", 15)
+      //   .attr("fill", "currentColor")
+      //   .attr("text-anchor", "start")
+      //   .text(yLabel));
+
+  
+    // Add a layer of things for level 1.
+    const faceSelection = svg
+      .append("g")
+      .attr("class", "faces")
+      .selectAll("svg.face")
+      .data(I)
+      .join((enter) => {
+        const face = enter
+          .append("svg")
+          .classed("face", true)
+          .attr("x", i => xScale(X[i])-rTemp(X[i]))
+          .attr("y", i => yScale(Y[i]))
+          .attr("width", (d, i) => 2 * rTemp(X[i]))
+          .attr("height", (d, i) => 2 * rTemp(X[i]))
+          .attr("viewBox", (d, i) => {
+            const rad = rTemp(X[i]);
+            return [-rad, -rad, 2 * rad, 2 * rad];
+          })
+          /*.on("click", function (event, d) {
+            //d3.select(this).classed("blink", true);
+            d3.selectAll("svg.face").each(function () {
+              d3.select(this).classed("blink", true);
+            });
+          })*/
+          .on("animationend", function (event, d) {
+            //console.log("animationend");
+            const e = d3.select(this);
+            e.classed("blink", false);
+            setTimeout((d) => e.classed("blink", true), wait());
+          });
+
+        const outline = face
+          .append("circle")
+          .attr("class", "outline")
+          .attr("cx", 0)
+          .attr("cy", 0)
+          .attr("r", (d, i) => rTemp(X[i]))
+          .attr("fill", (d, i) => _.sample(d3.schemeSet2));
+
+        const leftEye = face.append("g").classed("eye left-eye", true);
+        leftEye
+          .append("ellipse")
+          .classed("white", true)
+          .attr("cx", (d, i) => -(2 * rTemp(X[i])) / 5)
+          .attr("cy", 0)
+          .attr("rx", (d, i) => rTemp(X[i]) / 5)
+          .attr("ry", (d, i) => rTemp(X[i]) / 5);
+        leftEye
+          .append("ellipse")
+          .classed("pupil", true)
+          .attr("cx", (d, i) => -(2 * rTemp(X[i])) / 5 + 2)
+          .attr("cy", 0)
+          .attr("rx", (d, i) => rTemp(X[i]) / 10)
+          .attr("ry", (d, i) => rTemp(X[i]) / 10);
+
+        const rightEye = face.append("g").classed("eye right-eye", true);
+        rightEye
+          .append("ellipse")
+          .classed("white", true)
+          .attr("cx", (d, i) => (2 * rTemp(X[i])) / 5)
+          .attr("cy", (d) => 0)
+          .attr("rx", (d, i) => rTemp(X[i]) / 5)
+          .attr("ry", (d, i) => rTemp(X[i]) / 5);
+        rightEye
+          .append("ellipse")
+          .classed("pupil", true)
+          .attr("cx", (d, i) => (2 * rTemp(X[i])) / 5 + 1)
+          .attr("cy", (d) => 0)
+          .attr("rx", (d, i) => rTemp(X[i]) / 10)
+          .attr("ry", (d, i) => rTemp(X[i]) / 10);
+        //.attr("fill", "yellow");
+
+        const mouth = face.append("g").classed("mouth", true);
+
+        mouth
+          .append("path")
+          .attr("d", function (d, i) {
+            const rad = rTemp(X[i]);
+            const r2 = rad / 2;
+            return `M${-r2} ${rad / 3} c0 ${r2}, ${rad} ${r2}, ${rad} 0`;
+          })
+          .attr("opacity", 0.4);
+      });
+
+    svg.selectAll("svg.face").each(function (d, i) {
+      const e = d3.select(this);
+      e.classed("blink", false);
+      setTimeout((d) => e.classed("blink", true), wait());
+    });
+    
+    if (T) svg.append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round") // 设置字体的相关样式
+      .selectAll("text") // 将数据集 I（包含一系列索引值）和一系列「虚拟」的占位 <text> 元素进行绑定
+      .data(I)
+      .join("text") // 将这些 <text> 生成到 <g> 容器中
+      .attr("dx", 7) // 为文字在横纵轴方向上设置一点小偏移，避免阻挡数据点
+      .attr("dy", "0.35em")
+      .attr("x", i => xScale(X[i])) // 设置各个 <text> 元素的属性 x 和 y 将其移动到相应的数据点的位置。第二个参数是一个函数，则每一个 <text> 元素都会依次调用，并传入其绑定的数据 i，通过 X[i] 就可以读取到相应的数据点的横坐标值
+      .attr("y", i => yScale(Y[i]))
+      .text(i => X[i] > 0 ? T[i] : "") // 设置标注内容
+      .style("font-size", i => `${Math.max(10, (X[i]/10)+10)}px`) // 设置字体大小
+      .call(text => text.clone(true)) // 这里将各文本拷贝一份，用以实现文字描边的效果，可以有效地凸显文字内容，且避免其他元素对文字遮挡
+      .attr("fill", "none") // 没有填充色
+      .attr("stroke", halo) // 只是设置描边的颜色和宽度
+      .attr("stroke-width", haloWidth);
+    
+    
+    svg.selectAll("svg.face")
+      .append("title")
+      .text((d, i) => X[i]);
+    
+    svg.selectAll("text")
+      .append("title")
+      .text((d, i) => X[i]);
+    
+
+    return svg.node();
+  }
+  chart = blinkFace(Generalist_levels_data, {
+    x: d => [d.level_1, d.level_2, d.level_3, d.level_4],
+    y: d => [d.level_1_x, d.level_2_x, d.level_3_x, d.level_4_x],
+    title: d => [d.name, d.name, d.name, d.name],
+    xLabel: "Score",
+    yLabel: "Level",
+    width: svg_width,
+    height: svg_height,
+    xDomain: [0, 60],
+    yDomain: [16, 0],
+    xFormat: d3.format(".2f"),
+    yFormat: d3.format(".2f"),
+    fill: "steelblue",
+    stroke: "black",
+    strokeWidth: 1.5,
+    halo: "white",
+    haloWidth: 3
+  });
+
+</script>
+
+
+<!-- Contact -->
 <section class="hero is-light is-small" id="contact">
   <div class="hero-body has-text-centered">
     <h1 class="title is-1 MMT-Bench"><i class="fa-solid fa-headphones"></i> Contact</h1>
