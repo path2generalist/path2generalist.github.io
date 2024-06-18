@@ -593,9 +593,8 @@
         <h2 class="title is-3">Modalities</h2>
         <div class="content has-text-justified">
           <p>
-            An illustration of our pipeline for data collection. First, given a task name, we retrieve its related datasets from the internet.
-            Then we collate them in a uniform data format - metadata. Finally, we generate questions with choices and answers from metadata using
-            manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
+            The tasks adopted in our General-Bench will comprehensively cover images, texts, audio, videos, and 3D point clouds. 
+            Covering more modalities can better analyze the performance of generalist models.
           </p>
         </div>
       </div>
@@ -607,9 +606,14 @@
         <h2 class="title is-3">Task Format</h2>
         <div class="content has-text-justified">
           <p>
-            An illustration of our pipeline for data collection. First, given a task name, we retrieve its related datasets from the internet.
-            Then we collate them in a uniform data format - metadata. Finally, we generate questions with choices and answers from metadata using
-            manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
+            In our General-Bench, comprehension and generation tasks are collected to comprehensively evaluate the capability of models on comprehension and generation. 
+            For comprehension tasks, they generally follow the “many-to-one” paradigm, where AI models learn and abstract some common concepts and knowledge from multiple instances. 
+            For example, the instances husky, labrador, and bichon frise all belong to the concept “dog”. 
+            In contrast, generation tasks obey the “one-to-one” setting, which means different requirements or instructions lead a model to have different responses. 
+            In the first version of our benchmark, we collect 23 comprehension tasks, including image classification, image segmentation, visual grounding, etc. 
+            Also, 22 generation tasks are collected to evaluate the generation capability of models, which includes text-to-image generation, image editing, image inpainting, super-resolution synthesis, etc. 
+            Note that for each dataset adopted in the comprehension and generation tasks of the benchmark, we randomly sample about 300 samples to evaluate the model performance. 
+            Additionally, 26 NLP tasks are employed to evaluate the models that passing level4, so as to further quantify whether multi-modal or multi-task learning further boost the performance of models on NLP tasks.
           </p>
         </div>
       </div>
@@ -621,10 +625,52 @@
         <h2 class="title is-3">Example</h2>
         <div class="content has-text-justified">
           <p>
-            An illustration of our pipeline for data collection. First, given a task name, we retrieve its related datasets from the internet.
-            Then we collate them in a uniform data format - metadata. Finally, we generate questions with choices and answers from metadata using
-            manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
+            Some typical examples of the tasks in our General-Bench are given here, which may help researchers to better understand our proposed benchmark.
           </p>
+          <br>
+          <p>
+            <b style="font-size: large;">1.	Comprehension</b>
+          </p>
+          <table style="border: none;">
+            <tr>
+              <td style="text-align: center; border-right: 1px solid #000; border-top: 1px solid #000; border-bottom: none;"><img src="static/images/examples/semantic-seg.png" alt="pipeline" class="center" style="width: 100%;"></td>
+              <td style="text-align: center; border-top: 1px solid #000; border-bottom: none;"> <img src="static/images/examples/visual-grounding.png" alt="pipeline" class="center" style="width: 100%;"></td>
+            </tr>
+            <tr style=" border: none;">
+              <td style="text-align: center; border-right: 1px solid #000; font-weight: bold; border-bottom: 1px solid #000;">Semantic Segmentation</td>
+              <td style="text-align: center; font-weight: bold; font-weight: bold; border-bottom: 1px solid #000;">Visual Grounding</td>
+            </tr>
+            
+            <tr>
+              <td style="text-align: center; border-right: 1px solid #000; border-top: 1px solid #000; border-bottom: none;"><img src="static/images/examples/image-caption.png" alt="pipeline" class="center" style="width: 100%;"></td>
+              <td style="text-align: center; border-top: 1px solid #000; border-bottom: none;"> <img src="static/images/examples/OCR.png" alt="pipeline" class="center" style="width: 100%;"></td>
+            </tr>
+            <tr>
+              <td style="text-align: center; border-right: 1px solid #000; border-left: #ffffff; font-weight: bold; border-bottom: 1px solid #000;">Image Captioning</td>
+              <td style="text-align: center; font-weight: bold; border-bottom: 1px solid #000; border-bottom: 1px solid #000;">OCR</td>
+            </tr>
+          </table>
+          <p>
+            <b style="font-size: large;">2.	Generation</b>
+          </p>
+          <table style="border: none;">
+            <tr>
+              <td style="text-align: center; border-right: 1px solid #000; border-top: 1px solid #000; border-bottom: none;"><img src="static/images/examples/text-to-image.png" alt="pipeline" class="center" style="width: 100%;"></td>
+              <td style="text-align: center; border-top: 1px solid #000; border-bottom: none;"> <img src="static/images/examples/sketch-to-image.png" alt="pipeline" class="center" style="width: 100%;"></td>
+            </tr>
+            <tr>
+              <td style="text-align: center; border-right: 1px solid #000; font-weight: bold; border-bottom: 1px solid #000;">Text-to-image Generation</td>
+              <td style="text-align: center; font-weight: bold; border-bottom: 1px solid #000;">Sketch-to-image Generation</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; border-right: 1px solid #000; border-top: 1px solid #000; border-bottom: none;"><img src="static/images/examples/image-inpainting.png" alt="pipeline" class="center" style="width: 100%;"></td>
+              <td style="text-align: center; border-top: 1px solid #000; border-bottom: none;"> <img src="static/images/examples/semantic-image-synthesis.png" alt="pipeline" class="center" style="width: 100%;"></td>
+            </tr>
+            <tr>
+              <td style="text-align: center; border-right: 1px solid #000;  border-bottom: 1px solid #000; font-weight: bold;">Image Inpainting</td>
+              <td style="text-align: center; font-weight: bold; border-bottom: 1px solid #000;">Semantic Image Synthesis</td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
@@ -2972,22 +3018,29 @@
                 <li>
                     <strong>Normalizing <em>FID</em>:</strong>
                     <p>
-                     $$ y= \log (x)$$
+                     $$ y= \text{sigmoid} (100/x)$$
                     </p>
                 </li>
                 <li>
-                    <strong>Normalizing <em>FID</em>:</strong>
+                    <strong>Normalizing <em>MAE</em>:</strong>
                     <p>
-                     $$ y= \log (x)$$
+                     $$ y= \text{sigmoid} (50/x)$$
                     </p>
                 </li>
                 <li>
-                    <strong>Normalizing <em>FID</em>:</strong>
+                    <strong>Normalizing <em>LPIPS</em>:</strong>
                     <p>
-                     $$ y= \log (x)$$
+                     $$ y= \text{sigmoid} (80/x)$$
                     </p>
 
                 </li>
+                <li>
+                  <strong>Normalizing <em>PSNR</em>:</strong>
+                  <p>
+                   $$ y= \text{sigmoid} (x/15)$$
+                  </p>
+
+              </li>
             </ul>
           </div>
            
