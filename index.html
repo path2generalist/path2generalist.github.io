@@ -1203,7 +1203,7 @@
             <p>
               We selected existing popular MLLMs for evaluation on benchmarks and scored them according to the defined rules for levels. Below are the Generalist Levels for MLLMs.
             </p>
-            <div id="leaderboard_scatterplot" style="width: 100%; height: 1100px;"></div>
+            <div id="leaderboard_scatterplot" style="width: 100%; height: 1300px;"></div>
           </div>
         </div>
       </div>
@@ -3110,7 +3110,7 @@
     marginLeft = 30;
 
   const svg_width = 1000,
-    svg_height = 900;
+    svg_height = 1100;
   /**
    *
    * 创建容器
@@ -3189,7 +3189,7 @@
   // Create the SVG container.
   const svg = d3.select("#leaderboard_scatterplot").append("svg").attr("viewBox", [0, 0, svg_width, svg_height]);
 
-  function rTemp(value, max_r=50, min_r=10){
+  function rTemp(value, max_r=30, min_r=10){
     // adjust the radius of face based on the value, and setting a minimal radius
     if (value == 0){
       return 0
