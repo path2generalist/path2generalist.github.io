@@ -373,10 +373,40 @@
         <h2 class="title is-3">Principles</h2>
         <div class="content has-text-justified">
           <p>
-            An illustration of our pipeline for data collection. First, given a task name, we retrieve its related datasets from the internet.
-            Then we collate them in a uniform data format - metadata. Finally, we generate questions with choices and answers from metadata using
-            manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
+            Before determining the Levels of Multimodal Generalists, let us first clarify a few preliminaries about MLLMs.
           </p>
+        </div>
+
+        <div class="content has-text-justified">
+        <ol>
+            <li>
+                <strong>Multimodal Comprehension Vs. Multimodal Comprehension+Generation</strong>
+                <p>
+                  An MLLM that only has multimodal comprehension capabilities represents the most basic and primitive level; we believe that the more powerful an MLLM is, the more it should support advanced functionalities, capable of both multimodal comprehension and generating content across various modalities.
+                </p>
+            </li>
+            <li>
+                <strong>Support for More and Broader Modalities and Task Paradigms</strong>
+                <p>
+                    This aligns with our understanding of the capabilities of MLLMs: the stronger the MLLM and the closer it is to AGI, the more task types it can support, the more modalities it can handle, and the stronger its task performance.
+                </p>
+            </li>
+            <li>
+                <strong>A Strong Synergy Effect is the Core Aspect of an MLLM</strong>
+                <p>
+                    One could imagine using a simple LLM as a task dispatcher, combining all existing specialists to construct a multimodal agent or generalist capable of supporting various task types and modalities. However, we argue that merely unifying different tasks does not make a system a generalist. Therefore, a simple integration of specialists can, at best, only reach the capabilities of individual specialists. If so, what is the difference from using existing separate specialists? What is the point of integration?
+                </p>
+
+                <p>Instead, we suggest that synergy is the most critical aspect when assessing whether a multimodal generalist is stronger! An MLLM should be able to achieve a synergistic effect where 1+1 > 2, such as understanding a single modality & task that can be transferred to understanding other tasks & modalities, similar to the ChatGPT series, which can achieve robust generalization abilities with minimal training examples. This aligns with our expectations of a generalist.
+                </p>
+
+                <p>To this end, we focus on examining synergy capabilities: first, we evaluate the synergy among various multimodal tasks (comprehension or generation), then explore the synergistic effects between families of multimodal comprehension and generation tasks, and further investigate the presence of an <em>'everything synergy'</em>.
+                </p>
+
+            </li>
+        </ol>
+
+
         </div>
     </div>
     </div>
@@ -384,15 +414,6 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
 <!--        <h2 class="title is-3">Definition</h2>-->
-        <div class="content has-text-justified">
-          <img src="static/images/task-group.png" alt="pipeline" class="center" style="width: 65%;">
-          <br>
-          <p>
-            An illustration of our pipeline for data collection. First, given a task name, we retrieve its related datasets from the internet.
-            Then we collate them in a uniform data format - metadata. Finally, we generate questions with choices and answers from metadata using
-            manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
-          </p>
-        </div>
     </div>
     </div>
 
@@ -401,8 +422,20 @@
       <!-- <div class="column is-full-width has-text-centered"> -->
       <div class="column is-four-fifths">
         <h2 class="title is-3">Definition</h2>
+
+
         <div class="content has-text-justified">
-          <p>Here, we give the specific definition and calculation of each level:</p>
+          <p>
+            Based on the above principles, let's assume we have a benchmark of various modalities and tasks. We can categorize tasks under these modalities into Comprehension tasks and Generation tasks as illustrated in the diagram, where each symbol represents a specific task (dataset). Notably, we also isolate NLP tasks.
+          </p>
+          <img src="static/images/task-group.png" alt="pipeline" class="center" style="width: 65%;">
+          <br>
+          <p>
+            Let’s denote the number of datasets or tasks within the Comprehension task group by \( M \); the number within the Generation task group by \( N \); and the number of NLP tasks by \( T \).          </p>
+        </div>
+
+        <div class="content has-text-justified">
+          <p>Now, we can provide the specific definition and calculation of each level:</p>
           <table style="border:none; text-align:center;">
             <tr style="border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
                 <th style="background-color:#4CAFB9; font-size: larger;">Level</th>
@@ -411,31 +444,35 @@
                 <th style="background-color:#4CAFB9; font-size: larger;">Example</th>
             </tr>
             <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
-                <td style="text-align: left;"><b>Level-1</b> : Specialist</td>
-                <td style="text-align: left;">Models are task-specific players</td>
-                <td>N.A.</td>
+                <td style="text-align: left;"><b>Level-1</b>: Specialist</td>
+                <td style="text-align: justify;">Various current models, each fine-tuned on a specific task or dataset of specific modalities, are task-specific players (i.e., state-of-the-art (SoTA) specialists). This includes various AI processing tasks, such as recognition, classification, text generation, image generation, video segmentation, grounding, inpainting, and more.</td>
+                <td>For each task in the benchmark (\(i\)-th task), record the current SoTA specialist’s score: $$\sigma_i^{sota}$$ </td>
                 <td>SAM, Dino, DALLe, ChatGPT</td>
             </tr>
             <tr style="background-color:#ffffff; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
-              <td colspan="4" style="text-align:center;">&darr; Upgrading Conditions: <span style="font-weight:bold; font-style:italic;">LLM as intelligence medium (<span style="color:#04B153; font-weight:bold;">C</span>omprehension or/and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration)</span></td>
+              <td colspan="4" style="text-align:left;"><span style="font-weight:bold">&darr; Upgrading Conditions:</span> <span style="font-style:italic;">LLM as intelligence medium (<span style="color:#04B153; font-weight:bold;">C</span>omprehension or/and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration)</span></td>
             </tr>
             <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
-                <td style="text-align: left;"><b>Level-2</b> : Unified <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
-                <td style="text-align: left;">Models are task-unified players</td>
-                <td>$$ S_{2} =  \frac{1}{M+N} \sum_{i=1}^{M+N} \sigma_i  $$</td>
+                <td style="text-align: left;"><b>Level-2</b>: Generalist of Unified <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
+                <td style="text-align: justify;">Models are task-unified players, e.g., MLLMs, capable of supporting different modalities and tasks. Such MLLMs can integrate various models through existing encoding and decoding technologies to achieve aggregation and unification of various modalities and tasks (such as comprehension and generation tasks).</td>
+                <td style="text-align: justify;">The average score across all datasets is used as the model's score at this level. A model that can support a task,
+                    or scores non-zero on a corresponding dataset, is considered capable of supporting that task.
+                    The more tasks a model supports and the higher its scores, the higher its overall score:
+                    $$ S_{2} =  \frac{1}{M+N} \sum_{i=1}^{M+N} \sigma_i  $$</td>
                 <td>GPT4v, Ilava, LVM</td>
             </tr>
             <tr style="background-color:#ffffff; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
-              <td colspan="4" style="text-align:center;">&darr; Upgrading Conditions: <span style="font-weight:bold; font-style:italic;">Realizing synergy: multi-task joint learning</span></td>
+              <td colspan="4" style="text-align:left;"><span style="font-weight:bold">&darr; Upgrading Conditions:</span> <span style="font-style:italic;">Realizing synergy: multi-task joint learning</span></td>
             </tr>
             <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
-                <td style="text-align: left;"><b>Level-3</b> : Synergy in <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
-                <td style="text-align: left;">Models are task-unified players, and synergy is in <span style="color:#04B153; font-weight:bold;">C</span>omprehension and/or <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
+                <td style="text-align: left;"><b>Level-3</b>: Generalist with Synergy in <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
+                <td style="text-align: justify;">Models are task-unified players, and synergy is in <span style="color:#04B153; font-weight:bold;">C</span>omprehension and/or <span style="color:#05B1F0; font-weight:bold;">G</span>eneration.
+                MLLMs enhance several tasks' performance beyond corresponding SoTA scores through joint learning across multiple tasks due to the synergy effect.</td>
                 <!-- <td>`S_{3} = \( \frac{1}{M+N} \sum_{i=1}^{M+N} \sigma_i \) (if \(\sigma_i \geq \sigma_{sota}\), else \quad 0)`</td> -->
-                <td>
+                <td style="text-align: justify;">Assign a mask weight of 0 or 1 to each task; assign mask=1 only if the corresponding score exceeds the SoTA specialist’s score, otherwise assign mask=0. Then, calculate the average score across all tasks. The more tasks a model surpasses the SoTA specialist, the higher its score at this level:
                   $$
                   S_{3} = \frac{1}{M+N} \sum_{i=1}^{M+N} \begin{cases}
-                    \sigma_i,  & \sigma_i \geq \sigma_{sota} \\\\
+                    \sigma_i,  & \sigma_i \geq \sigma_i^{sota} \\\\
                     0
                     \end{cases}
                   $$
@@ -443,28 +480,34 @@
                 <td>MM-GPT, SALOMNN, Midjourney</td>
             </tr>
             <tr style="background-color:#ffffff; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
-              <td colspan="4" style="text-align:center;">&darr; Upgrading Conditions: <span style="font-weight:bold; font-style:italic;">Reconstruction loss for generation should be disentangled from compression learning loss</span></td>
+              <td colspan="4" style="text-align:left;"><span style="font-weight:bold">&darr; Upgrading Conditions:</span> <span style="font-style:italic;">Reconstruction loss for generation should be disentangled from compression learning loss</span></td>
             </tr>
             <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
-                <td style="width:25%; text-align: left;"><b>Level-4</b> : Synergy across <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
-                <td style="width:25%; text-align: left;">Models are task-unified players, and synergy is across <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
-                <td style="width:30%;">$$ S_{4} = \frac{2 S_c S_g}{S_c + S_g}, \,\;\;\; \text{where} \\  S_g = \frac{1}{M} \sum_{i=1}^{M}  \begin{cases}
-                  \sigma_i,  & \sigma_i \geq \sigma_{sota} \\\\
+                <td style="width:25%; text-align: left;"><b>Level-4</b>: Generalist with Synergy across <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration</td>
+                <td style="width:25%; text-align: justify;">Models are task-unified players, and synergy is across <span style="color:#04B153; font-weight:bold;">C</span>omprehension and <span style="color:#05B1F0; font-weight:bold;">G</span>eneration.</td>
+                <td style="width:30%; text-align: justify;">Calculate the average scores exceeding SoTA specialists separately in the Comprehension and Generation groups, obtaining \( S_c \) and \( S_g \), and then compute their harmonic mean. The stronger a model is in Comprehension and Generation tasks, the higher its score at this level:
+                    $$ S_{4} = \frac{2 S_c S_g}{S_c + S_g}, \,\;\;\; \text{where} \\  S_g = \frac{1}{M} \sum_{i=1}^{M}  \begin{cases}
+                  \sigma_i,  & \sigma_i \geq \sigma_i^{sota} \\\\
                   0
                   \end{cases}, \\  S_c = \frac{1}{N} \sum_{j=1}^{N} \begin{cases}
-                  \sigma_j,  & \sigma_j \geq \sigma_{sota} \\\\
+                  \sigma_j,  & \sigma_j \geq \sigma_i^{sota} \\\\
                   0
                   \end{cases} $$</td>
                 <td style="width:20%;">Emu2, NExT-GPT, SEED</td>
             </tr>
             <tr style="background-color:#ffffff; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
-              <td colspan="4" style="text-align:center;">&darr; Upgrading Conditions: <span style="font-weight:bold; font-style:italic;">Acquiring the capable of abductive reasoning, being context consistent, everything synergy </span></td>
+              <td colspan="4" style="text-align:left;"><span style="font-weight:bold">&darr; Upgrading Conditions:</span> <span style="font-style:italic;">Acquiring the capable of abductive reasoning, being context consistent, everything synergy </span></td>
             </tr>
             <tr style="background-color:#EDF6F7; border-top:2px solid #8ACBD1; border-bottom:2px solid #8ACBD1;">
-                <td style="text-align: left;"><b>Level-5</b> : Total Synergy across <span style="color:#04B153; font-weight:bold;">C</span>omprehension, <span style="color:#05B1F0; font-weight:bold;">G</span>eneration, and N<span style="color:#cc1a1a; font-weight:bold;">L</span>P</td>
-                <td style="text-align: left;">Models are task-unified players, and synergy is across <span style="color:#04B153; font-weight:bold;">C</span>omprehension, <span style="color:#05B1F0; font-weight:bold;">G</span>eneration, and N<span style="color:#cc1a1a; font-weight:bold;">L</span>P</td>
-                <td>$$ S_{5} = S_4 \times w_L, \,\;\;\; \text{where} \\  w_L = \frac{S_L}{S_{total}}, \\ S_L = \frac{1}{T} \sum_{k=1}^{T}  \begin{cases}
-                  \sigma_k,  & \sigma_k \geq \sigma_{sota} \\\\
+                <td style="text-align: left;"><b>Level-5</b>: Generalist with Total Synergy across <span style="color:#04B153; font-weight:bold;">C</span>omprehension, <span style="color:#05B1F0; font-weight:bold;">G</span>eneration, and N<span style="color:#cc1a1a; font-weight:bold;">L</span>P
+                </td>
+                <td style="text-align: justify;">Models are task-unified players, preserving the synergy effect across <span style="color:#04B153; font-weight:bold;">C</span>omprehension, <span style="color:#05B1F0; font-weight:bold;">G</span>eneration, and N<span style="color:#cc1a1a; font-weight:bold;">L</span>P.
+                In other words, the model not only achieves cross-modality synergy between Comprehension and Generation groups but also further realizes synergy with language.
+                The NLP’s intelligence can enhance multimodal intelligence and vice versa; understanding multimodal information can also aid in understanding language.
+                </td>
+                <td style="text-align: justify;">First, calculate the model’s average score exceeding SoTA NLP specialists on NLP benchmark data, normalize it to a [0,1] weight, and multiply it by the score from level 4 to determine the level 5 score:
+                    $$ S_{5} = S_4 \times w_L, \,\;\;\; \text{where} \\  w_L = \frac{S_L}{S_{total}}, \\ S_L = \frac{1}{T} \sum_{k=1}^{T}  \begin{cases}
+                  \sigma_k,  & \sigma_k \geq \sigma_k^{sota} \\\\
                   0
                   \end{cases} $$</td>
                 <td>None, this is our goal!</td>
@@ -503,14 +546,43 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">General-Bench</h2>
+
+
         <div class="content has-text-justified">
+          <p>
+            Existing benchmarks for evaluating MLLMs have the following issues:
+          </p>
+        <ol>
+            <li>
+                <strong>Limited by Current MLLM Capabilities</strong>
+                <p>
+                Existing benchmarks rephrase and simplify all tasks into a fixed multiple-choice format. While this simplifies the evaluation of MLLMs, it limits assessments to the models' multimodal comprehension capabilities. As discussed above, a true multimodal generalist should not only support comprehension but also possess various other abilities, such as multimodal generation, editing, and more.
+                </p>
+            </li>
+            <li>
+                <strong>Limited Modal Coverage</strong>
+                <p>
+                The majority of existing benchmarks focus primarily on the image modality, neglecting comprehensive modal coverage.
+                </p>
+            </li>
+            <li>
+                <strong>Insufficient Task Granularity</strong>
+                <p>
+                    Existing benchmarks are limited to coarse-grained understanding of multimodal information and do not adequately assess the understanding of more fine-grained details
+                </p>
+
+            </li>
+        </ol>
+
+
+        </div>
+        <div class="content has-text-justified">
+
+          <p>
+            In response, this project proposes a new benchmark, named <strong>General-Bench</strong>, which collects testing sets from various modalities in diverse task formats. It includes a range of tasks that comprehensively and thoroughly assess the full capabilities of a multimodal generalist.
+          </p>
           <img src="static/images/benchmark-illu.png" alt="pipeline" class="center" style="width: 100%;">
           <br>
-          <p>
-            An illustration of our pipeline for data collection. First, given a task name, we retrieve its related datasets from the internet.
-            Then we collate them in a uniform data format - metadata. Finally, we generate questions with choices and answers from metadata using
-            manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
-          </p>
         </div>
       </div>
     </div>
@@ -552,6 +624,18 @@
             An illustration of our pipeline for data collection. First, given a task name, we retrieve its related datasets from the internet.
             Then we collate them in a uniform data format - metadata. Finally, we generate questions with choices and answers from metadata using
             manually designed rules or ChatGPT. Our benchmarks cover capabilities evaluation with diverse image types
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contribute  -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Contribute your Test Set!</h2>
+        <div class="content has-text-justified">
+          <p>
+            If you have a multimodal task and dataset and would like existing MLLMs to be evaluated on your benchmark, please consider contributing your dataset to General-Bench!
           </p>
         </div>
       </div>
@@ -1201,7 +1285,7 @@
           <img src="static/images/demo-vis.png" alt="pipeline" class="center" style="width: 100%;"> -->
           <div class="content has-text-justified">
             <p>
-              We selected existing popular MLLMs for evaluation on benchmarks and scored them according to the defined rules for levels. Below are the Generalist Levels for MLLMs.
+              The evaluation of multimodal generalist levels of existing popular MLLMs are shown below.
             </p>
             <div id="leaderboard_scatterplot" style="width: 100%; height: 1300px;"></div>
           </div>
@@ -1216,7 +1300,7 @@
         <div class="content">
           <div class="content has-text-justified">
             <p>
-            Below is the original quantitative performance of all MLLMs across all tasks.
+            Below we list the original quantitative performance (zero-shot evaluation) of all MLLMs across all tasks.
             </p>
           </div>
 
@@ -2877,6 +2961,35 @@
               </tbody>
             </table>
           </div>
+
+          <div class="content has-text-justified">
+            <p>
+            Most task evaluation scores, despite utilizing different metrics, fall within the 0-100 range (such as F1, Accuracy, etc.); however, some task metrics yield scores outside the 1-100 range.
+            Thus, we design the following score mapping to standardize various scores into the 1-100 range, facilitating the calculation for the above level scoring algorithms.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Normalizing <em>FID</em>:</strong>
+                    <p>
+                     $$ y= \log (x)$$
+                    </p>
+                </li>
+                <li>
+                    <strong>Normalizing <em>FID</em>:</strong>
+                    <p>
+                     $$ y= \log (x)$$
+                    </p>
+                </li>
+                <li>
+                    <strong>Normalizing <em>FID</em>:</strong>
+                    <p>
+                     $$ y= \log (x)$$
+                    </p>
+
+                </li>
+            </ul>
+          </div>
            
         </div>
       </div>
@@ -2889,9 +3002,7 @@
         <h2 class="title is-3">Submit your MLLM!</h2>
         <div class="content has-text-justified">
           <p>
-            To analyze the error distribution of LVLMs on the MMTBench, we examined three LVLMs: GPT-4V, GeminiProVision, and InternVL-Chat-V1.2 (InternVL).
-            In results, perception error stands out as the most common type of error across all models, with GPT-4V exhibiting a significantly lower perception error rate (51%) compared to GeminiProVision (76.9%) and InternVL (67.2%), indicating its superior performance in perception tasks.
-            Reasoning error emerges as the second most prevalent error type, with InternVL having the highest reasoning error rate (14.8%), followed by GeminiProVision (10.4%) and GPT-4V (9.94%), highlighting the challenges all models face in complex reasoning tasks.
+            If you would like to see your MLLM ranked on the above leaderboard, please submit your MLLM and evaluation results to us.
           </p>
         </div>
         <!-- <div class="content has-text-centered">
