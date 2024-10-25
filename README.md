@@ -1,5 +1,5 @@
 # Path to Multimodal Generalist
-Homepage of [Path to Multimodal Generalist: Level, Benchmark and Model](https://path2generalist.github.io/)
+Homepage of [Path to Multimodal Generalist: Level and Benchmark](https://path2generalist.github.io/)
 
 
 # Website License
