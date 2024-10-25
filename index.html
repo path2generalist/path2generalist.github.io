@@ -17,7 +17,7 @@
   <meta name="keywords" content="Multimodal LLM, MLLM Evaluation, Benchmark, Vision Language Model, Large Language Model, artificial intelligence, AI, AGI, artificial general intelligence">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Path to Multimodal Generalist: Level, Benchmark and Model</title>
+  <title>Path to Multimodal Generalist: Level and Benchmark</title>
     <link rel="shortcut icon" type="image/x-icon" href="./static/images/icon.png">
 
 
@@ -125,7 +125,7 @@
 <!--          More Research-->
 <!--        </a>-->
 <!--        <div class="navbar-dropdown">-->
-<!--          <a class="navbar-item" href="https://github.com/OpenGVLab/Multi-Modality-Arena">-->
+<!--          <a class="navbar-item" href="https://github.com/xxxx">-->
 <!--            <b>Lvlm-ehub</b> <p style="font-size:18px; display: inline; margin-left: 5px;">🔥</p>-->
 <!--          </a>-->
 <!--        </div>-->
@@ -143,10 +143,11 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title is-bold">
-            <span class="MMT-Bench" style="vertical-align: middle">Path to Multimodal Generalist:</span>
+            <img src="./static/images/icon.png" width="60" style="margin-right: 10px;">
+            <span style="vertical-align: middle">Path to Multimodal Generalist:</span>
             </h1>
           <h1 class="subtitle is-1 publication-subtitle is-bold">
-              <em>Levels</em>, <em>Benchmarks</em> and <em>Models</em>
+              <em>Levels</em> and <em>Benchmarks</em>
           </h1>
 
           <br>
@@ -293,10 +294,8 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">🔔News</h2>
         <div class="content has-text-justified">
-          <p>
-            <b>🔥[2024-06-16]: We release our first version of benchmark datasets, and the leaderboard!</b>
-          </p>
-          <br>
+          <p><b>🔥[2024-11-15]: Paper, benchmark datasets, and the leaderboard are fully released!</b></p><br>
+          <p><b>🔥[2024-06-16]: We release our first version of benchmark datasets, and the leaderboard!</b></p><br>
       </div>
 
       </div>
@@ -321,32 +320,22 @@
 <!--        <h2 class="title is-3">Introduction</h2>-->
         <div class="content has-text-justified">
           <p>
-            The Multimodal Language and Vision Models (MLLM) community is currently experiencing rapid growth, driven by the advanced capabilities of language-based LLMs. 
-            Unlike their specialist predecessors, existing MLLMs are evolving towards a Multimodal Generalist paradigm. 
-            Initially limited to understanding multiple modalities, these models have advanced to not only comprehend but also generate and edit across modalities. 
-            Their capabilities have expanded from coarse-grained to fine-grained multimodal understanding 
-            and from supporting singular modalities to accommodating a wide array or even arbitrary modalities. 
-            To assess the capabilities of various MLLMs, a diverse array of benchmark test sets has been proposed. 
-            This leads to a critical inquiry: <b>Can we simply assume that higher performance across diverse tasks and the support of more modalities indicate a stronger MLLM capability, 
-              bringing us closer to human-level artificial intelligence?</b>
+The Multimodal Language Language Model (MLLM) community is currently experiencing rapid growth, driven by the advanced capabilities of language-based LLMs. 
+Unlike their specialist predecessors, existing MLLMs are evolving towards a Multimodal Generalist paradigm. 
+Initially limited to understanding multiple modalities, these models have advanced to not only comprehend but also generate and edit across modalities. 
+Their capabilities have expanded from coarse-grained to fine-grained multimodal understanding and from supporting singular modalities to accommodating a wide array or even arbitrary modalities. 
+To assess the capabilities of various MLLMs, a diverse array of benchmark test sets has been proposed. 
+This leads to a critical inquiry: <b>Can we simply assume that higher performance across diverse tasks and the support of more modalities indicate a stronger MLLM capability, bringing us closer to human-level AI?</b>
             <br><br>
-            We argue that the answer is not as straightforward. 
-            In this project, we introduce a framework designed to delineate the capabilities and behaviors of current MLLM Generalists. 
-            This framework establishes levels of MLLM performance and generality, 
-            offering a methodology to compare MLLMs and gauge the progress of existing systems towards more robust Multimodal Generalists and, 
-            ultimately, towards AGI. 
-            Central to our framework is the use of Synergy as the evaluative criterion, 
-            categorizing capabilities based on whether MLLMs preserve synergy in and across comprehension and generation, as well as across multimodal interactions.
-            <br><br>
-            We realize that current MLLM benchmarks predominantly assess multimodal comprehension capabilities—often simplifying complex interactions into multiple-choice questions. 
-            However, a true MLLM Generalist should possess a diverse array of powerful capabilities, e.g., multimodal generation and editing. 
-            To evaluate the comprehensive abilities of various MLLMs as Generalists, we propose a more holistic benchmark, named <b>General-Bench</b>, 
-            which encompasses a broader spectrum of tasks, modalities, formats, and capabilities. 
-            The evaluation results involving over 20 existing popular MLLMs have uncovered the current capability rankings of Multimodal Generalists, 
-            highlighting the challenges in reaching genuine human-level AI. 
-            We anticipate that the Multimodal Generalist Levels and our General-Bench will inspire the community to develop next-generation multimodal foundation models aimed at achieving more sophisticated, general-purpose multimodal intelligence.
+We argue that the answer is not as straightforward. 
+In this project, we introduce a framework to delineate the capabilities and behaviors of current MLLM generalists. 
+This framework, named <b>General-Level</b>, establishes levels of MLLM performance and generality, offering a methodology to compare MLLMs and gauge the progress of existing systems towards more robust multimodal generalists and, ultimately, towards AGI. 
+Central to our framework is the use of Synergy as the evaluative criterion, categorizing capabilities based on whether MLLMs preserve synergy in and across comprehension and generation, as well as across multimodal interactions.
+To evaluate the comprehensive abilities of various MLLMs as generalists, we propose a holistic benchmark, <b>General-Bench</b>, which encompasses a broader spectrum of tasks, modalities, formats, and capabilities. 
+The evaluation results involving over 20 state-of-the-art MLLMs uncover the capability rankings of generalists, highlighting the challenges in reaching genuine AI. 
           </p>
         </div>
+        <img src="static/images/intro-4.png" alt="pipeline" class="center" style="width: 65%;">
       </div>
     </div>
 </div>
@@ -359,7 +348,7 @@
 <section class="hero is-light is-small" id="level">
   <div class="hero-body has-text-centered">
   <h1 class="title is-1 MMT-bench">
-    <span style="vertical-align: middle"><i class="fa-solid fa-circle-nodes"></i> Level of Multimodal Generalist</span>
+    <span style="vertical-align: middle"><i class="fa-solid fa-circle-nodes"></i> General-Level: Level of Multimodal Generalist</span>
   </h1>
   </div>
 </section>
@@ -428,7 +417,7 @@
           <p>
             Based on the above principles, let's assume we have a benchmark of various modalities and tasks. We can categorize tasks under these modalities into Comprehension tasks and Generation tasks as illustrated in the diagram, where each symbol represents a specific task (dataset). Notably, we also isolate NLP tasks.
           </p>
-          <img src="static/images/task-group.png" alt="pipeline" class="center" style="width: 65%;">
+          <img src="static/images/task-group-1.png" alt="pipeline" class="center" style="width: 100%;">
           <br>
           <p>
             Let’s denote the number of datasets or tasks within the Comprehension task group by \( M \); the number within the Generation task group by \( N \); and the number of NLP tasks by \( T \).          </p>
@@ -536,7 +525,7 @@
 <section class="hero is-light is-small" id="benchmark">
   <div class="hero-body has-text-centered">
   <h1 class="title is-1 MMT-bench">
-    <span style="vertical-align: middle"><i class="fa-solid fa-database"></i> Benchmark</span>
+    <span style="vertical-align: middle"><i class="fa-solid fa-database"></i> General-Bench: Benchmark of Multimodal Generalist</span>
   </h1>
   </div>
 </section>
@@ -545,7 +534,7 @@
     <!-- General-Bench -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">General-Bench</h2>
+<!--         <h2 class="title is-3">General-Bench</h2> -->
 
 
         <div class="content has-text-justified">
@@ -579,15 +568,31 @@
         <div class="content has-text-justified">
 
           <p>
-            In response, this project proposes a new benchmark, named <strong>General-Bench</strong>, which collects testing sets from various modalities in diverse task formats. It includes a range of tasks that comprehensively and thoroughly assess the full capabilities of a multimodal generalist.
+            In response, this project proposes a new benchmark, named <strong>General-Bench</strong>.
           </p>
-          <img src="static/images/benchmark-illu.png" alt="pipeline" class="center" style="width: 100%;">
+          <img src="static/images/dataset-sum2.png" alt="pipeline" class="center" style="width: 100%;">
           <br>
         </div>
       </div>
     </div>
 
-    <!-- Modalities -->
+    <!-- Highlights -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Data Highlights</h2>
+        <div class="content has-text-justified">
+          <p>
+General-Bench particularly places a strong emphasis on the diversity of its evaluation data, covering a wide range of fields and scenarios to assess different aspects of model capabilities.
+First, the dataset spans a variety of domains and disciplines, incorporating 14 major areas within both the physical sciences (e.g., Physics, Geometry, Biology) and the social sciences (e.g., Humanities, Linguistics, History). 
+The evaluation of multimodal generalist skills and capabilities is categorized into universal modality-invariant abilities and modality-specific skills. 
+The modality-invariant abilities comprehensively include 8 categories: content recognition, commonsense understanding, reasoning ability, causality discrimination, affective analysis, interactive capability, creativity and innovation, and problem-solving.
+          </p>
+          <img src="static/images/dataset-insight2.png" alt="pipeline" class="center" style="width: 100%;">
+        </div>
+      </div>
+    </div>
+    
+<!--     <!-- Modalities -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Modalities</h2>
@@ -598,10 +603,10 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Task Format -->
-    <div class="columns is-centered has-text-centered">
+<!--     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Task Format</h2>
         <div class="content has-text-justified">
@@ -617,7 +622,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Example -->
     <div class="columns is-centered has-text-centered">
