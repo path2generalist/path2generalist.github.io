@@ -140,7 +140,7 @@
 <section class="hero" style="margin-top:30px;">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <div class="columns is-centered">
+      <div class="columns is-centered" style="margin-top: 15px;">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title is-bold">
             <img src="./static/images/icon.png" width="60" style="margin-right: 10px;">
@@ -294,8 +294,8 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">🔔News</h2>
         <div class="content has-text-justified">
-          <p><b>🔥[2024-11-15]: Paper, benchmark datasets, and the leaderboard are fully released!</b></p><br>
-          <p><b>🔥[2024-06-16]: We release our first version of benchmark datasets, and the leaderboard!</b></p><br>
+          <p><b>🔥[2024-11-15]: Paper, benchmark datasets, and the leaderboard are fully released!</b></p>
+          <p><b>🔥[2024-06-16]: We release our first version of benchmark datasets, and the leaderboard!</b></p>
       </div>
 
       </div>
@@ -335,7 +335,12 @@ To evaluate the comprehensive abilities of various MLLMs as generalists, we prop
 The evaluation results involving over 20 state-of-the-art MLLMs uncover the capability rankings of generalists, highlighting the challenges in reaching genuine AI. 
           </p>
         </div>
-        <img src="static/images/intro-4.png" alt="pipeline" class="center" style="width: 65%;">
+        <img src="static/images/intro-4.png" alt="pipeline" class="center" style="width: 72%;"><br>
+        <figcaption>
+            <p style="text-align: center; color: #061E61;">
+                <b>Figure 1:</b> Illustrating that most existing MLLMs are based on language intelligence (a), whereas the ideal intelligence mode is maintaining synergy and generalization across all modalities and tasks (b).
+            </p>
+        </figcaption>
       </div>
     </div>
 </div>
@@ -417,7 +422,7 @@ The evaluation results involving over 20 state-of-the-art MLLMs uncover the capa
           <p>
             Based on the above principles, let's assume we have a benchmark of various modalities and tasks. We can categorize tasks under these modalities into Comprehension tasks and Generation tasks as illustrated in the diagram, where each symbol represents a specific task (dataset). Notably, we also isolate NLP tasks.
           </p>
-          <img src="static/images/task-group-1.png" alt="pipeline" class="center" style="width: 100%;">
+          <img src="static/images/task-group-1.png" alt="pipeline" class="center" style="width: 95%;">
           <br>
           <p>
             Let’s denote the number of datasets or tasks within the Comprehension task group by \( M \); the number within the Generation task group by \( N \); and the number of NLP tasks by \( T \).          </p>
@@ -587,13 +592,13 @@ First, the dataset spans a variety of domains and disciplines, incorporating 14 
 The evaluation of multimodal generalist skills and capabilities is categorized into universal modality-invariant abilities and modality-specific skills. 
 The modality-invariant abilities comprehensively include 8 categories: content recognition, commonsense understanding, reasoning ability, causality discrimination, affective analysis, interactive capability, creativity and innovation, and problem-solving.
           </p>
-          <img src="static/images/dataset-insight2.png" alt="pipeline" class="center" style="width: 100%;">
+          <img src="static/images/dataset-insight2.png" alt="pipeline" class="center" style="width: 95%;">
         </div>
       </div>
     </div>
     
-<!--     <!-- Modalities -->
-    <div class="columns is-centered has-text-centered">
+<!-- Modalities -->
+<!--         <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Modalities</h2>
         <div class="content has-text-justified">
@@ -677,6 +682,7 @@ The modality-invariant abilities comprehensively include 8 categories: content r
             </tr>
           </table>
         </div>
+        <br>
       </div>
     </div>
 
