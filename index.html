@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MM Generalist | Towards Multimodal Generalist</title>
+    <meta
+      name="description"
+      content="A single-page overview of the MM Generalist research thread, spanning unified multimodal large language models, synergy between comprehension and generation, flagship papers, workshops, and tutorial series."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sora:wght@500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-orbit page-orbit-a" aria-hidden="true"></div>
+    <div class="page-orbit page-orbit-b" aria-hidden="true"></div>
+    <div class="page-grid" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="header-shell">
+        <a class="brand" href="#overview" aria-label="MM Generalist home">
+          <img
+            class="brand-mark"
+            src="logo.png"
+            alt="MM Generalist logo"
+            width="34"
+            height="34"
+          />
+          <span class="brand-copy">
+            <strong>MM Generalist</strong>
+            <span>Towards Multimodal Generalist</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#overview">Overview</a>
+          <a href="#research">Research</a>
+          <a href="#workshop">Workshop</a>
+          <a href="#tutorial">Tutorial</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <section class="hero-shell panel" id="overview">
+        <div class="hero-header">
+          <!-- <p class="kicker">Towards Multimodal Generalist</p> -->
+          <h1>
+            From Unified MLLM to <span>Multimodal Generalist</span>
+          </h1>
+          <!-- <p class="hero-subtitle">
+            Unifying modality, task, and paradigm with real synergy between modalities, tasks, paradigms.
+          </p> -->
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-copy">
+            <p class="hero-lead">
+              Future human-level or superhuman AI will be
+              multimodal generalist that can perceive, reason, and create across
+              modalities while preserving deep synergy between modalities, tasks, paradigms.
+            </p>
+
+            <div class="hero-principles">
+              <article class="principle-card">
+                <p class="principle-index">01</p>
+                <h2>Beyond language-only intelligence</h2>
+                <p>
+                  Future AI should natively operate over text, images, video,
+                  audio, 3D, and embodied signals rather than treating language
+                  as the only privileged interface.
+                </p>
+              </article>
+
+              <article class="principle-card">
+                <p class="principle-index">02</p>
+                <h2>From unified MLLM to generalist</h2>
+                <p>
+                  The target is the unification of modality, task, and
+                  paradigm, spanning both comprehension and generation.
+                </p>
+              </article>
+
+              <article class="principle-card">
+                <p class="principle-index">03</p>
+                <h2>Synergy is the missing axis</h2>
+                <p>
+                  A real multimodal generalist should exhibit generalization
+                  across modalities, across tasks, and across paradigms, rather
+                  than hosting isolated skills side by side.
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-image-frame">
+              <img
+                src="mm-generalist.png"
+                alt="Concept illustration of multimodal intelligence linking comprehension and generation"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="research">
+        <div class="section-heading">
+          <p class="kicker">Flagship Research</p>
+          <!-- <h2>Flagship papers under the MM Generalist thread</h2> -->
+          <!-- <p class="section-summary">
+            This line of work studies multimodal generality from two
+            complementary angles: how to evaluate the path towards generalist
+            intelligence, and how to train unified models whose understanding
+            and generation abilities truly reinforce each other.
+          </p> -->
+        </div>
+
+        <div class="thread-stack">
+          <article class="thread-card panel">
+            <div class="thread-head">
+              <div class="meta-row">
+                <span>General-level</span>
+                <span>General-Bench</span>
+                <span>ICML 2025 (Oral / Spotlight)</span>
+                <!-- <span></span> -->
+              </div>
+              <h3>On Path to Multimodal Generalist: </h3>
+              <h3 style="margin-top: -2mm;">General-Level and General-Bench</h3>
+              <p class="thread-lead">
+                A principled evaluation framework for measuring how far current
+                multimodal large language models have progressed towards genuine
+                multimodal generalists.
+              </p>
+            </div>
+
+            <div class="thread-body">
+              <div class="thread-copy">
+                <ul class="point-list">
+                  <li>
+                    Defines a five-scale <strong>General-Level</strong> to map
+                    the capability and generality of multimodal systems.
+                  </li>
+                  <li>
+                    Positions <strong>Synergy</strong> as a core criterion:
+                    models should stay consistently strong across comprehension,
+                    generation, and multiple modalities.
+                  </li>
+                  <li>
+                    Introduces <strong>General-Bench</strong> with 700+ tasks
+                    and 325,800 instances spanning broad skills, formats, and
+                    capabilities.
+                  </li>
+                  <li>
+                    Benchmarks 100+ state-of-the-art MLLMs to expose both the
+                    progress and the remaining gap towards AGI.
+                  </li>
+                </ul>
+
+                <div class="link-row">
+                  <a
+                    class="button button-primary"
+                    href="https://generalist.top/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Project Page
+                  </a>
+                  <a
+                    class="button button-secondary"
+                    href="https://arxiv.org/abs/2505.04620"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Paper
+                  </a>
+                </div>
+              </div>
+
+              <figure class="thread-figure">
+                <img
+                  src="assets/General-Level.png"
+                  alt="Overview figure for General-Level and General-Bench"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </div>
+          </article>
+
+          <article class="thread-card panel">
+            <div class="thread-head">
+              <div class="meta-row">
+                <span>Unified-R1</span>
+                <span>AD-Loop</span>
+                <span>ICLR 2026</span>
+                <!-- <span>Synergistic thinking</span> -->
+              </div>
+              <h3>Synergizing Understanding and Generation with Interleaved Analyzing-Drafting Thinking</h3>
+              <p class="thread-lead">
+                A unified reasoning paradigm where understanding and generation
+                alternate inside one problem-solving loop instead of remaining
+                parallel but disconnected capabilities.
+              </p>
+            </div>
+
+            <div class="thread-body">
+              <div class="thread-copy">
+                <ul class="point-list">
+                  <li>
+                    Introduces the <strong>Analyzing-Drafting Loop</strong>, an
+                    interleaved process that alternates textual thoughts and
+                    visual thoughts before the final output.
+                  </li>
+                  <li>
+                    Trains the loop in two stages: supervised imitation of
+                    interleaved thinking, then reinforcement learning for
+                    adaptive control over when to analyze or draft.
+                  </li>
+                  <li>
+                    Delivers consistent gains on both understanding and
+                    generation benchmarks across multiple unified
+                    vision-language model architectures.
+                  </li>
+                  <li>
+                    Provides evidence that multimodal generalist behavior
+                    benefits from explicit interaction between comprehension and
+                    creation.
+                  </li>
+                </ul>
+
+                <div class="link-row">
+                  <a
+                    class="button button-primary"
+                    href="https://sqwu.top/AD-Loop/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Project Page
+                  </a>
+                  <a
+                    class="button button-secondary"
+                    href="https://arxiv.org/abs/2602.21435"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Paper
+                  </a>
+                </div>
+              </div>
+
+              <figure class="thread-figure">
+                <img
+                  src="assets/AD-Loop.png"
+                  alt="Overview figure for the interleaved analyzing-drafting loop"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="workshop">
+        <div class="section-heading">
+          <p class="kicker">Workshop</p>
+          <!-- <h2>Community efforts around unified comprehension and generation</h2> -->
+          <!-- <p class="section-summary">
+            Separate from the paper track, this section highlights community
+            venues dedicated to formalizing the MUCG perspective and gathering
+            research on unified multimodal understanding and creation.
+          </p> -->
+        </div>
+
+        <div class="context-stack">
+          <article class="context-card panel">
+            <div class="context-head">
+              <div class="meta-row">
+                <span>ACM MM 2025</span>
+                <span>Dublin, Ireland</span>
+                <!-- <span>October 27</span> -->
+              </div>
+              <h3>The 1st International Workshop @ ACM MM 2025: MLLM for Unified Comprehension and Generation</h3>
+            </div>
+
+            <div class="context-body">
+              <div class="context-copy">
+              <p class="context-lead">
+                MUCG focuses on closing the gap between multimodal comprehension
+                and generation inside unified MLLM frameworks rather than
+                treating them as independent capabilities.
+              </p>
+              <ul class="point-list">
+                <li>
+                  Targets three connected fronts: sophisticated multimodal
+                  comprehension, controllable content generation, and unified
+                  frameworks for semantic alignment.
+                </li>
+                <li>
+                  Emphasizes shared architectures, bidirectional knowledge
+                  transfer, and end-to-end training for jointly capable models.
+                </li>
+                <li>
+                  Positions unified understanding and generation as a distinct
+                  research agenda for the next phase of MLLM development.
+                </li>
+              </ul>
+
+              <div class="link-row">
+                <a
+                  class="button button-primary"
+                  href="https://mllm-mucg.github.io/MM2025/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Workshop Page
+                </a>
+              </div>
+              </div>
+
+              <div class="context-side">
+                <div class="topic-block">
+                  <p class="topic-label">Focus for papers</p>
+                  <div class="topic-chip-grid">
+                    <span>MLLM for multimodal comprehension &amp; reasoning</span>
+                    <span>MLLM for multimodal content generation</span>
+                    <span>Unified MLLM understanding and generation</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="context-card panel">
+            <div class="context-head">
+              <div class="meta-row">
+                <span>IJCV special issue</span>
+                <!-- <span>MUCG</span> -->
+                <!-- <span>Tentative page</span> -->
+              </div>
+              <h3>Special Issue @ IJCV 2026: </h3>
+              <h3 style="margin-top: -2mm;">MLLMs for Unified Comprehension and Generation</h3>
+            </div>
+
+            <div class="context-body">
+              <div class="context-copy">
+              <p class="context-lead">
+                The special issue frames MUCG as a closed-loop paradigm where
+                perceptual grounding, internal reasoning, and generative outputs
+                must remain aligned across heterogeneous modalities.
+              </p>
+              <ul class="point-list">
+                <li>
+                  Covers unified architectures, training and alignment,
+                  reasoning and controllability, evaluation and benchmarks,
+                  efficiency, scalability, and real-world applications.
+                </li>
+                <li>
+                  Pushes for shared vocabulary, rigorous comparative studies,
+                  unified metrics, and more reproducible research practices in
+                  large-scale multimodal modeling.
+                </li>
+                <li>
+                  Serves as an archival venue for consolidating advances that
+                  are currently scattered across conferences and rapidly moving
+                  project threads.
+                </li>
+              </ul>
+
+              <div class="link-row">
+                <a
+                  class="button button-primary"
+                  href="https://mllm-mucg.github.io/IJCV2026/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Call4Paper Page
+                </a>
+              </div>
+              </div>
+
+              <div class="context-side">
+                <div class="topic-block">
+                  <p class="topic-label">Key scopes</p>
+                  <div class="topic-chip-grid">
+                    <span>Unified modeling architectures</span>
+                    <span>Training &amp; alignment strategies</span>
+                    <span>Reasoning, grounding &amp; controllability</span>
+                    <span>Evaluation &amp; benchmarks</span>
+                    <span>Efficiency &amp; scalability</span>
+                    <span>Applications</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="tutorial">
+        <div class="section-heading">
+          <p class="kicker">Tutorial</p>
+          <!-- <h2>The first tutorial series for the MLLM community</h2> -->
+          <p class="section-summary">
+            The first tutorial series for the MLLM community, charting the evolution from multimodal
+            large language models to human-level AI, with different editions
+            focusing on benchmarks, architecture, reasoning, hallucination,
+            efficiency, and broader open problems.
+          </p>
+        </div>
+
+        <div class="tutorial-grid">
+          <article class="tutorial-card panel">
+            <div class="meta-row">
+              <span>CVPR 2025</span>
+              <span>Nashville, TN, USA</span>
+            </div>
+            <h3>Evaluations and Benchmarks in the Context of Multimodal LLM</h3>
+            <!-- <p class="tutorial-meta">Nashville, TN, USA</p> -->
+            <div class="link-row">
+              <a
+                class="button button-secondary"
+                href="https://mllm2024.github.io/CVPR2025/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tutorial Page
+              </a>
+            </div>
+          </article>
+
+          <article class="tutorial-card panel">
+            <div class="meta-row">
+              <span>ACM MM 2024</span>
+              <span>Melbourne, Australia</span>
+            </div>
+            <h3>From Multimodal LLM to Human-level AI: Architecture, Modality, Function, Instruction, Hallucination, Evaluation, Reasoning and Beyond</h3>
+            <!-- <p class="tutorial-meta"></p> -->
+            <div class="link-row">
+              <a
+                class="button button-secondary"
+                href="https://mllm2024.github.io/ACM-MM2024/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tutorial Page
+              </a>
+            </div>
+          </article>
+
+          <article class="tutorial-card panel">
+            <div class="meta-row">
+              <span>CVPR 2024</span>
+              <span>Seattle, WA, USA</span>
+            </div>
+            <h3>From Multimodal LLM to Human-level AI: Modality, Instruction, Reasoning and Beyond</h3>
+            <p class="tutorial-meta"></p>
+            <div class="link-row">
+              <a
+                class="button button-secondary"
+                href="https://mllm2024.github.io/CVPR2024/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tutorial Page
+              </a>
+            </div>
+          </article>
+
+          <article class="tutorial-card panel">
+            <div class="meta-row">
+              <span>LREC-COLING 2024</span>
+              <span>Torino, Italia</span>
+            </div>
+            <h3>From Multimodal LLM to Human-level AI: Modality, Instruction, Reasoning, Efficiency and Beyond</h3>
+            <!-- <p class="tutorial-meta"></p> -->
+            <div class="link-row">
+              <a
+                class="button button-secondary"
+                href="https://mllm2024.github.io/COLING2024/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tutorial Page
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <p class="footer-copy">
+          &copy; Copyright 2026 MM Generalist. All rights reserved.
+        </p>
+        <p class="footer-contact">
+          Contact:
+          <a href="https://haofei.vip/" target="_blank" rel="noopener noreferrer">Hao Fei</a> ( <a href="mailto:haofei7419@gmail.com">haofei7419@gmail.com</a>)
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
